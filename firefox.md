@@ -1,0 +1,1 @@
+- take screenshot (supports scrolling): `ctrl + shift + s`
