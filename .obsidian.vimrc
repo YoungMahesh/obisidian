@@ -21,3 +21,6 @@ vnoremap ; <C-d>zz
 
 " Redo
 nnoremap r <C-r>
+
+" use the system clipboard as the default for yank, delete, change, and put operations
+set clipboard=unnamedplus
