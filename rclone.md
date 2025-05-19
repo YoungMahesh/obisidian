@@ -15,6 +15,9 @@ rclone tree drive1:         # list files and folders in tree-like format
 rclone size drive1:sangrah  # get #size of file or folder
 rclone cat drive1:names.txt # print file-content on terminal
 
+rclone move drive1:abc drive1:xyz # move "content" of abc to xyz, REMEMBER we are moving only content not directory, after execution abc/a.txt will be xyz/a.txt instead of xyz/abc/a.txt
+rclone copy drive1:abc drive1:xyz # copy "content" of abc to xyz, after execution abc/a.txt will be copied as xyz/a.txt instead of xyz/abc/a.txt
+
 rclone copy --progress ./cat.jpg drive1:pics  # copy local data to remote account, skip unchanged items
 
 # https://rclone.org/filtering/#files-from-read-list-of-source-file-names
