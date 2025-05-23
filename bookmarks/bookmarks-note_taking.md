@@ -14,13 +14,7 @@
 	- around AI: notebookLM
 	- mind-map: whimsical, excalidraw, figma
 
-- [AnyType](https://anytype.io/)
-	- End to End Encrypted
-		- no need of Email, just seed-phrase for encryption and identity
-	- Open Source, supports self-hosting, can backup to GitHub
-	- alternative to Notion
-	- free-plan: 1 GB storage
-	- Template(object)-oriented note taking 
+- [[AnyType]]
 - [remnote](https://www.remnote.com/)
 - neovim+git+github
 - [notebooklm.google.com/](https://notebooklm.google.com/)
