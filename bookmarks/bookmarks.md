@@ -11,3 +11,5 @@
     - [huggingface](https://huggingface.co/docs/datasets/en/index)
     - synthetic data - generated through LLM
     - [scale](https://scale.com/)
+
+- [[bookmarks-auth]]

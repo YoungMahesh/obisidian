@@ -1,0 +1,3 @@
+- [clerk-auth](https://clerk.com/)
+- [better-auth](https://www.better-auth.com/)
+- [work-os](https://workos.com/)
