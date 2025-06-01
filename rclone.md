@@ -18,7 +18,7 @@ rclone cat drive1:names.txt # print file-content on terminal
 rclone move drive1:abc drive1:xyz # move "content" of abc to xyz, REMEMBER we are moving only content not directory, after execution abc/a.txt will be xyz/a.txt instead of xyz/abc/a.txt
 rclone copy drive1:abc drive1:xyz # copy "content" of abc to xyz, after execution abc/a.txt will be copied as xyz/a.txt instead of xyz/abc/a.txt
 
-rclone copy --progress ./cat.jpg drive1:pics  # copy local data to remote account, skip unchanged items
+rclone copy --progress ./cat.jpg drive1:pics  # copy local data to remote account, does not transfer files that are identical on source and destination
 
 # https://rclone.org/filtering/#files-from-read-list-of-source-file-names
 # copy files from list to target; each file-name on new line; trims whitespace around file-name; comments start with #
@@ -39,7 +39,12 @@ rclone check drive_mahesh: ./drive
 # It compares sizes and hashes (MD5 or SHA1) and logs a report of files which don't match.
 # It doesn't alter the source or destination.
 
-rclone sync --dry-run /local-path dest:folder   # --dry-run shows changes which will happen if you run the command
+rclone sync /local-path dest:folder --dry-run    # --dry-run shows changes which will happen if you run the command
+
+# use `sync` only to delete files, if copy is interrupted, continue with copy command as it will skip existing identical files
+# sometimes, source-path and destination-path differences are seen although there are none, especially when one is unencrypted and one is encrypted, in this case use --size-only to sync actual changes
+rclone sync source: dest: --dry-run --size-only
+
 rclone sync -i --progress /home/youngmahesh/downloads/docs drive1:docs --transfers=1000
 # first-location is source, second-location is destination
 # Destination is updated to match source, including deleting files if necessary

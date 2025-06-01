@@ -12,3 +12,4 @@
 - keyboard shortcuts
 	- `?` on bottom-right corner -> Keyboard shortcuts
 		- open the search pane - `ctrl + p`
+		- lock / unlock object (toggle) - `ctrl + l`
