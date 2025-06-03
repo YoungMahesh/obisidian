@@ -1,13 +1,14 @@
 ```bash
+# access rclone using UI
+rclone rcd --rc-web-gui --rc-user me --rc-pass mypass
+rclone rcd --rc-web-gui
+
 rclone [options] subcommand source destination  # syntax
 rclone [options] --help  # get help for rclone-command
 rclone config            # add, remove, manage accounts
 rclone config show       # print config_file
 rclone config file       # get configuration file location for rclone
 rclone listremotes       # get list of remote accounts
-
-# access rclone using UI
-rclone rcd --rc-web-gui --rc-user me --rc-pass mypass
 
 rclone lsf drive1:          # list files and folders
 rclone mkdir drive1:fold1   # create new folder with name - fold1
@@ -31,8 +32,8 @@ rclone move -v --drive-server-side-across-configs drive1:Hosted/Books drive2:boo
 # "-v" to visualize the progress
 # for server-side transfer, source folder should be "Public" or "Shared with destionation-user", works when source and dest is "Google Drive"
 
-rclone moveto drive1:tiger.jpg drive1:tiger11.jpg
 # rename file/folder
+rclone moveto drive1:tiger.jpg drive1:tiger11.jpg
 
 rclone check drive_mahesh: ./drive
 # Checks the files in the source and destination match.
