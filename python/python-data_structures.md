@@ -44,12 +44,29 @@ heapq.heapify(emp)
 ```python
 import queue
 
+# note cannot traverse without removing item, if you want traversable queue,
+# then use deque
 q = queue.Queue()
 q.put(3)   # insert at the end
 isEmpty = q.empty()
 ele = q.get()    # remove and get value of first element
 currSize = q.qsize()
 ```
+
+## Deque
+```python
+from collections import deque
+
+q = deque([1, 2, 3, 4, 5])
+q = deque()
+currSize = len(q)
+q.append(4)
+q.appendleft(3)
+q.pop()
+q.popleft()
+elementAtIndex1 = q[1]
+```
+
 
 ## Recursion related
 ### set/increase recursion limt

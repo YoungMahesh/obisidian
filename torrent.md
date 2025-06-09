@@ -3,8 +3,9 @@ sudo apt install transmission-cli
 
 # default directory - $HOME/Downloads 
 # download file at ./
-transmission-cli [URL_or_PATH_of_torrent_file] -w ./ --no-seed
-# -er, --no-seed, --exit   Exit after download is complete
+transmission-cli [URL_or_PATH_of_torrent_file] -w ./ --exit
+# --no-seed didn't exit after download is complete
+# -er, --exit   Exit after download is complete
 
 # get size of file
 transmission-show [URL_or_PATH_of_torrent_file]
