@@ -14,6 +14,11 @@ sudo modprobe -r btusb # -r == remove, remove btusb
 sudo modprobe btusb # load btusb
 ```
 
+### blueman bluetooth manager
+- [blueman](https://github.com/blueman-project/blueman)
+- [[i3wm]] does not have GNOME like GUI, you can use bluemen in it
+- how to accept pairing code?
+	- before connecting, execute `bluetoothctl` in CLI, this will listen to requests -> upon request type `yes` in prompt to accept request
 
 ### fix problems on Itel #feature-phone
 - error in file-transfer : One headset is already activated, please deactivate it first, to activate another

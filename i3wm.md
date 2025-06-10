@@ -1,5 +1,6 @@
 - [implementation](https://github.com/YoungMahesh/dotfiles/tree/main/i3)
 - i3 window manager
+- [[Bluetooth]]
 
 ## components
 
