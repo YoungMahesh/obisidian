@@ -6,6 +6,34 @@ import heapq
 heapq.heapify(list1)  # convert list to min-heap
 heapq.heappush(list1, 33) # insert element
 ele = heapq.heappop(list1) # remove smallest element
+
+# ---------------- ----------------------------
+# when child is an array, and you want heap to consider only second element of the array, then convert children into tuple and pass it to heapq module
+array = [[1, 3, 4], [1, 5, 7], [1, 2, 3]]
+heap = [(item[1], item) for item in array]
+heapq.heapify(heap)
+
+# Your initial array
+array = [[1, 3, 4], [1, 5, 7], [1, 2, 3]]
+# Create a heap using the second element as the key
+heap = []
+for item in array:
+    # (key, item)
+    heapq.heappush(heap, (item[1], item))
+
+# To get the smallest by the second element:
+smallest0 = heapq.heappop(heap) # (2, [1,2,3])
+smallest = smallest0[1]
+print(smallest)  # Output: [1, 2, 3]
+
+# To add a new element:
+new_item = [1, 0, 9]
+heapq.heappush(heap, (new_item[1], new_item))
+
+# To remove the smallest again:
+smallest0 = heapq.heappop(heap)[1] # (0, [1,0,9])
+smallest = smallest0[1]
+print(smallest)  # Output: [1, 0, 9]
 ```
 ### max-heap
 ```python
@@ -163,4 +191,17 @@ def cmpFun(a, b):
 
 arr = [[2, 34], [5, 23], [4, 244], [1, 343]]
 arr2 = sorted(arr, key=cmp_to_key(cmpFun))
+```
+
+
+## DefaultDict
+- A subclass of dict that provides a default value for missing keys.
+```python
+from collections import defaultdict
+
+d = defaultdict(list) # remember to pass word 'list' inside function
+d['fruits'].append('apple')
+print(d['fruits'])  # Output: ['apple']/sor
+print(d['veggies']) # Output: [] (created automatically)
+# No KeyError for missing keys; instead, a default value is created.
 ```
