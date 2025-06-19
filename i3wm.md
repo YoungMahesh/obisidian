@@ -60,7 +60,7 @@ Here’s how you can hide/show your i3 bottom bar items, here we will hide **Wif
        status_command i3status
        …
    }
-   ```
+```
    Change it to:
    ```ini
    bar {

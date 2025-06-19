@@ -1,0 +1,3 @@
+- Dijkstra's algorithm: graph search algorithm that finds the shortest path from a starting node to all other nodes in a graph
+- The Bellman-Ford:  graph search algorithm that finds the shortest path from a single source node to all other nodes in a weighted directed graph, even if the graph contains negative edge weights according to some resources. 
+	- It's particularly useful when Dijkstra's algorithm, which is faster, cannot be used due to negative edge weights.
