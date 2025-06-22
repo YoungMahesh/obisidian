@@ -1,0 +1,22 @@
+- keyboard shortcuts
+  - mass expand, collapse
+  - delete rem `ctrl + alt + shift + d`
+  - `ctrl + up` collapse, `ctrl + down` expand, `ctrl + shift + down` include all descendants
+  - `ctrl + \` move to parent
+  - `# #` insert tag,
+  - `enter` add child, `shift + enter` add line break (create paragraph instead of line)
+  - `down` move to adjacent note below , `up` move to adjacent node above
+  - add child without splitting text `alt + enter`
+  - search all notes `ctrl + p`
+  - intent `Tab` ; outdent `shift + tab`
+  - for more - click `?` on bottom-right ⇒ keyboard shortcuts
+- ui tweaks
+  - mass expand, collaspse: select rems with mouse ⇒ `ctrl + /` ⇒ search and enter on `expand/collapse`
+- why remnote over others
+  - neovim - i want system where i can make bullets points titles of other notes
+  - remnote have free plan which supports unlimited notes, 20 file upload daily
+  - notes graph and AI support (only in pro mode)
+  - can export all notes in `.rem` and `.md` format
+- problems
+  - does not have vim motions - can be fixed with remnote keyboard shortcuts
+-

@@ -15,3 +15,18 @@
 - finance: for asset valuation and predicting market trends
 - healthcare: analyze impact of various factors on disease risk
 - business: forecasting sales, understanding market dynamics
+
+
+---
+
+- Deep Learning
+    - Neural Networks
+        - mimic the human brain
+        - artificial neural networks (ANN)
+            - classification
+            - regression
+        - convolution neural network (CNN)
+            - input data in - images, videos
+            - object detection
+            - computer vision
+        - Recurrent neural network
