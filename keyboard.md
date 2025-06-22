@@ -1,4 +1,5 @@
 ### Redragon keyboard
+
 - `Fn + Alt` Change color theme
 - `Super+Fn`: lock `Super` key
 - `Fn2+9`: change back-light color mode
