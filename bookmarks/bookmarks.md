@@ -34,3 +34,5 @@
     - [scale](https://scale.com/)
 
 - [[bookmarks-auth]]
+
+- [[bookmarks-sync]]
