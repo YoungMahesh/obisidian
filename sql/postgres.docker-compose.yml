@@ -1,0 +1,17 @@
+services:
+  # https://github.com/docker-library/docs/tree/a4c950ec6f3f02e58024e556ed956bb535a475e1/postgres
+  postgres0:
+    container_name: postgres00
+    image: postgres:17.3
+    # restart: always 
+    environment:
+      # [optional] [default: postgres] used in conjunction with POSTGRES_PASSWORD to set a user and its password
+      POSTGRES_USER: postgres
+      # sets the superuser password for PostgreSQL
+      POSTGRES_PASSWORD: 7791243d6ef591682068
+      # [optional] [default: value of POSTGRES_USER] can be used to define a different name for the default database that is created when 
+      #   the image is first started 
+      POSTGRES_DB: example 
+    ports:
+      - 5432:5432
+

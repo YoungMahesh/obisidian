@@ -1,0 +1,140 @@
+name: Database Backup to MinIO
+
+# Controls when the workflow will run
+on:
+  # Run this workflow daily at 2:00 AM UTC
+  schedule:
+    - cron: '0 2 * * *'
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "db-backup"
+  db-backup:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Setup Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Cache pip dependencies
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # Cache apt packages
+      - name: Cache apt packages
+        uses: actions/cache@v3
+        id: apt-cache
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-apt-${{ hashFiles('**/db-backup.yml') }}
+
+      # Install required tools
+      - name: Install MySQL client
+        run: |
+          if [ -z "$(which mysqldump)" ]; then
+            sudo apt-get update
+            sudo apt-get install -y mysql-client
+          else
+            echo "MySQL client already installed, skipping installation"
+          fi
+
+      # Create database backups
+      - name: Create MySQL backups
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME_1: ${{ vars.DB_NAME }}
+          DB_NAME_2: ${{ vars.DB_NAME_2 }}
+        run: |
+          # Generate timestamp for the backup file names
+          TIMESTAMP=$(date +%Y-%m-%d_%H:%M:%S)
+          
+          # Backup first database
+          BACKUP_FILE_1="${DB_NAME_1}_backup_${TIMESTAMP}.sql"
+          echo "Creating backup for first database: ${DB_NAME_1}"
+          mysqldump -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME_1" > ${BACKUP_FILE_1}
+          
+          # Check if first backup was successful
+          if [ $? -eq 0 ]; then
+            echo "First database backup created successfully: ${BACKUP_FILE_1}"
+          else
+            echo "First database backup failed"
+            exit 1
+          fi
+          
+          # Backup second database
+          BACKUP_FILE_2="${DB_NAME_2}_backup_${TIMESTAMP}.sql"
+          echo "Creating backup for second database: ${DB_NAME_2}"
+          mysqldump -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME_2" > ${BACKUP_FILE_2}
+          
+          # Check if second backup was successful
+          if [ $? -eq 0 ]; then
+            echo "Second database backup created successfully: ${BACKUP_FILE_2}"
+          else
+            echo "Second database backup failed"
+            exit 1
+          fi
+          
+          # Create a list of backup files
+          echo "BACKUP_FILES=${BACKUP_FILE_1} ${BACKUP_FILE_2}" >> $GITHUB_ENV
+
+      # Cache MinIO Client (mc)
+      - name: Cache MinIO Client
+        id: cache-minio-client
+        uses: actions/cache@v3
+        with:
+          path: /usr/local/bin/mc
+          key: ${{ runner.os }}-minio-client-${{ hashFiles('**/db-backup.yml') }}
+
+      # Download and install MinIO Client (mc) if not cached
+      - name: Install MinIO Client
+        if: steps.cache-minio-client.outputs.cache-hit != 'true'
+        run: |
+          # Download and install MinIO Client (mc)
+          curl -O https://dl.min.io/client/mc/release/linux-amd64/mc
+          chmod +x mc
+          sudo mv mc /usr/local/bin/
+          echo "MinIO Client installed from source"
+        
+      # Upload backups to MinIO
+      - name: Upload backups to MinIO
+        env:
+          S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+          S3_SECRET_KEY: ${{ secrets.S3_SECRET_KEY }}
+          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+        run: |
+          # Configure MinIO Client (mc)
+          mc alias set myminio "$S3_ENDPOINT" "$S3_ACCESS_KEY" "$S3_SECRET_KEY"
+          
+          # Upload all backup files to MinIO
+          for BACKUP_FILE in $BACKUP_FILES; do
+            echo "Uploading $BACKUP_FILE to MinIO..."
+            mc cp "$BACKUP_FILE" myminio/$S3_BUCKET_NAME/
+            
+            # Check if upload was successful
+            if [ $? -eq 0 ]; then
+              echo "Backup file uploaded successfully to MinIO: myminio/$S3_BUCKET_NAME/$BACKUP_FILE"
+            else
+              echo "Failed to upload backup file to MinIO"
+              exit 1
+            fi
+          done

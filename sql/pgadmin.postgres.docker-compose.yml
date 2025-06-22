@@ -1,0 +1,11 @@
+services:
+  # https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
+  pgadmin0:
+    container_name: pgadmin00
+    image: dpage/pgadmin4:9.0.0
+    # restart: always 
+    environment:
+      PGADMIN_DEFAULT_EMAIL: xyz@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 80e172e352343dsfe1d6
+    ports:
+      - "5050:80"

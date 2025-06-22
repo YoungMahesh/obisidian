@@ -1,12 +1,13 @@
-
 ## `.csv` to MySQL
 
 - method 2 and 3 are unreliable, if `.csv` file is big, number of rows in csv-file > rows created in database
 
 ### method 1
+
 - use Jupiter-notebook with pandas library in python
 
 ### method 2 (fast) - bash
+
 ```bash
 # create a new table xyz with same table schema of existing table abc
 create table <new-table-name> like <existing-table-name>;
@@ -49,9 +50,10 @@ IGNORE 1 ROWS;
 
 
 # ----------- import sql ------------
-source /var/lib/mysql-files/p3.sql; 
+source /var/lib/mysql-files/p3.sql;
 
 ```
 
 ### method 3 (slow) - phpmyadmin
+
 - open table in phpmyadmin ⇒ click import ⇒ choose-file ⇒ partial import (put 1 if csv have header) ⇒ click import
