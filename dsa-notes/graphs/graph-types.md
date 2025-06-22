@@ -1,0 +1,2 @@
+- bipartite graph
+  - a graph whose nodes can be colored with two colors such that two nodes on any edge will not have same color

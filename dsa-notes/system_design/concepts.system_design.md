@@ -1,0 +1,158 @@
+### client server model (HTTP)
+
+- IP Address: An address given to each machine connected to the public internet
+  - consists of 4 numbers separated by dots where all four are between 0 to 255
+  - 127.0.0.1: reserved represent your own local machine, also known as localhost
+- Port: In order for multiple programs to listen for new network connection on the same machine without colliding, they pick a port to listen on.
+  - A port is an integer between 0 and 65,535 (2^16 total)
+  - some are reserverved ports such as:
+    - 22: Secure Shell
+    - 53: DNS lookup
+    - 80: HTTP
+    - 443: HTTPS
+- DNS (Domain Name System): the entities and protocols involved in the translation from domain names to IP Addresses
+  - Machines makes a DNS query to a well known entity which is responsible for returning the IP addresss of the requested domain name in the response
+
+### Chatting
+
+- a form of real-time communication between two or more people
+- can be done using a variety of protocols using XMPP, WebSockets, TCP, HTTP
+- if we implement chat feature using http instead of XMPP, every user's device will send requests to server every few seconds, are there any messages for me, which can lead to overload on server
+- so instead of user asking, server will send message to user as soon as it receives any
+- here we will use peer-to-peer communication instead of client-server communication
+- hence we will use XMPP protocol with WebSocket or TCP, instead of http protocol
+
+## networking protocols
+
+Networking protocols are a set of rules and standards that allow devices to communicate with each other.
+
+### Communication protocols
+
+Define the rules for how devices exchange data
+
+- TCP (transmission control protocol)
+  - provides reliable, bi-directional communication between devices
+  - used in web browsing, email, file transfer
+- UDP (user datagram protocol)
+  - provides unreliable, uni-directional communication between devices
+  - used for streaming video, online gaming
+- HTTP (hypertext tranfer protocol)
+  - used to transfer web page and other web-based resources
+
+### Management protocols
+
+used to monitor and manage networks
+
+- SNMP (simple network management protocol)
+  - widely used protocol for monitoring and managing network devies
+- ICMP (internet control message protocol)
+  - used to send error messages and otehr status information between network devices
+
+### Security protocols
+
+used to protect network and data from unauthorized access and attacks
+
+- SSL(secure sockets layer)/TLS(transport layer security)
+  - provides encryption and authentication for secure communication over the internet
+- IPsec
+  - a suite of protocols that provides security for IP traffic
+
+### protocols with uses
+
+- TCP/IP
+  - a transport-layer protocol, foundational protocol suite of the internet
+  - includes protocols for addressing, routing, delivering data packets
+  - used for web browsing, email, file-transfer
+- HTTP
+  - application layer protocol
+  - request-response protocol
+  - used to transfer web pages & other web-based resources
+- FTP
+  - used to tranfer files between devices
+- SMTP
+  - used to send email
+- DNS
+  - used to translate domain names into IP addresses
+- DHCP
+  - used to automatically assign IP addresses to devices
+- SSH
+  - a secure protocol used for remote login and file tranfer
+- VPN (virtual private network)
+  - a technology that uses encryption to create a secure tunnel over the internet
+- WebSockets
+  - a communication protocol
+  - provides full-duplex communication between a client and a server over a single TCP connection.
+  - often used for real-time applications, such as chat and streaming video
+- XMPP (Extensible Messaging & Present Protocol)
+  - a communication protocol
+  - specifically designed for real-time messaging
+  - can be used with either TCP or WebSockets as the transport layer protocol
+    - XMPP with TCP => BOSH (Bidirection-steams over synchronous HTTP)
+    - XMPP with WebSockets => WebSocket XMPP
+    - most modern chat applications use WebSocket XMPP it provides advantages such as lower latency, reduced bandwidth usage, full-duplex communication, etc over BOSH
+  - used in chat applications like Pidgin, Conversations, Jitsi Meet
+  - used for near-real-time messaging, presence and request-response services
+  - text-based protocol that used XML to encode messages
+  - designed to be extensible, so that new features can be added easily
+
+---
+
+- IP (Internet Protocol): THis network protocol outlines how almost all machine-to-machine communications should happen in the world
+  - Other protocols like TCP, UDP and HTTP are built on top of IP
+- TCP (Transmission Control Protocol)
+  - built on top of IP
+  - allows for ordered, reliable data delivery between machines over the public internet by creating a connection
+  - TCP is usually implemented in the kernel, which exposes sockets to applications that they can use to stream data through an open connection
+- HTTP (HyperText Transfer Protocol)
+  - built on top of TCP
+  - Client makes HTTP requests, and servers respond with a response
+    - request have schema containing: host, port, method, headers, body
+    - response have schema containing: status code, headers, body
+- IP Packet
+  - an IP packet is effectively the smallest unit used to describe data being sent over IP
+  - aside from bytes, an IP packet consists of: IP header (contains source and destination IP address), payload (data sent over the network)
+
+### OSI(open systems interconnection) network models
+
+- description
+  - a conceptual framework that describes how data is communicated over a network
+  - each layer provides services to the layer above it and uses the services of layer below it
+- application layer: HTTP, HTTPS, WebSockets, FTP, SMTP, POP3, DNS, SSH, Telnet
+- presentation layer: ASCII, EBCDIC, JPEG, MPEG, PNG, GIF
+- session layer: NetBIOS, SMB
+- trasport layer: TCP, UDP
+- network layer: IP, ICMP, ARP, ICMPv6, DHCP
+- data link layer: Ethernet, PPP, Frame Relay, ATM
+- physical layer: RS232, 100BaseTX, ISDN, Fiber Optic
+
+### storage
+
+- disk
+  - usually refers to either HDD (hard-disk drive) or SSD(solid-state drive)
+  - data written to disk will persist through power failures and general machine crashes
+  - disk is also referred to as non-volatile storage
+  - SSD is far faster HDD but also far more expensive from a financial point of view
+  - because of financial reasons, HDD will typically be used for data that's rarely accessed or updated, but that's stored for a long time, and SSD will be used for data that's frequently accessed and updated
+- memory (Random Access Memory - RAM)
+  - data stored in memory will be lost when the process that has written that data dies
+- persistent storage
+  - usually refers to disk, but in general it is any form of storage that persists if the process in charge of managing it dies
+- databases
+  - databases are programs that either use disk or memory to do 2 core things: record data and query data
+  - in general, they are themselves servers that are long lived and interact with the rest of your application through network calls, with protocols on top of TCP or even HTTP
+  - some databases only keep records in memory, for the most part though, databases need persistence of those records
+  - since machines die often in a large scale system, special disk partitions or volumes are used by the database processes, and those volumes can get recovered even if the machine where to go down permanently
+
+### latency and throughput
+
+- latency
+  - time for a certain operation to complete in a system
+  - examples
+    - reading 1MB from RAM: 0.25ms
+    - reading 1MB from SSD: 1ms
+    - transfer 1MB over Network: 10ms
+    - reading 1MB from HDD: 20ms
+    - inter-continental round trip: 150ms
+- throughput
+  - the number of operations that a system can handle properly per time unit
+  - for instance, the throughput of a server can often be measured in requests per second (RPS or QPS)
