@@ -1,5 +1,5 @@
 Write a function that takes in a list of Cartesian coordinates(x,y) and returns the number of squares that can be formed by these coordinates
-![count-squares](./count-squares.excalidraw.png)
+![count-squares](count-squares.excalidraw.png)
 
 ```python
 # O(n^2) time, O(n) space, where n is the number of points

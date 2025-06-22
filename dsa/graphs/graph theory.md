@@ -32,7 +32,7 @@
 
 ### a\* path finder
 
-The [A\* pathfinding algorithm](./a__path-finder.excalidraw.excalidraw.png) is a graph traversal and path search algorithm that uses heuristics to estimate the most efficient path. It is a widely used algorithm in robotics, video games, and other applications where efficient navigation is required.
+The [A\* pathfinding algorithm](a__path-finder.excalidraw.excalidraw.png) is a graph traversal and path search algorithm that uses heuristics to estimate the most efficient path. It is a widely used algorithm in robotics, video games, and other applications where efficient navigation is required.
 
 The A\* algorithm works by maintaining two sets of nodes:
 
