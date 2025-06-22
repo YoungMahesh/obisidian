@@ -1,0 +1,9 @@
+services:
+  service1:
+    container_name: xyz
+    # restart policy
+    # no: Never attempt to restart the container if it stops or crashes
+    # always: Always attempt to restart the container if it stops for any reason
+    # on-failure: Restart the container only if it stops with an error code (non-zero code)
+    # unless-stopped: Always restart the container unless it is manually stopped
+    restart: unless-stopped
