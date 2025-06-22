@@ -1,3 +1,42 @@
+## Configuration
+```typescript
+import { type Config } from "drizzle-kit";
+import { env } from "@/env";
+
+// default configuration
+export default {
+  schema: "./src/server/db/schema.ts",
+  dialect: "mysql",
+  dbCredentials: {
+    url: env.DATABASE_URL,
+  },
+  tablesFilter: ["v6_*"],
+} satisfies Config;
+
+// modications i like to make
+export default {
+  schema: "./src/server/db/schema.ts",
+  dialect: "mysql",
+  dbCredentials: {
+    url: env.DATABASE_URL,
+  },
+  // directory to store schema pulled using `bunx drizzle-kit introspect`
+  // i use same file for schema and introspect
+  out: "./src/server/db",
+  introspect: {
+    casing: "preserve",
+  },
+} satisfies Config; 
+```
+
+## Syntax
+### MySQL row insert Id
+- `result.insertId == id-of-inserted-row` according to drizzle-ormv0.30.10 docs (which we are using currently) https://stackoverflow.com/a/78644505
+
+- according to new documentation (which we will use in future) we have to use .returningId - https://orm.drizzle.team/docs/insert#insert-returningid
+
+- upgraded version, but need to fix this: whenever we pull schema, it removes .primaryKey() from id of signature-schema, which removes returning of { id: number} from typescript
+
 ## Apply SQL commands to database
 ```typescript
 import { sql } from "drizzle-orm";
