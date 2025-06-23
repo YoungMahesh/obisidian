@@ -1,3 +1,6 @@
+
+## Note Taking
+
 - comparisons
 	- [[Obsidian vs Remnote]]
 	- remnote vs neovim
@@ -20,3 +23,9 @@
 - [notebooklm.google.com/](https://notebooklm.google.com/)
 - [www.notion.so/](https://www.notion.so/)
 - [Whimsical - Unite teams, tasks, and tools in one place](https://whimsical.com/)
+
+
+## Code editor
+- [windsurf](https://windsurf.com/)
+- [vscode](https://code.visualstudio.com/)
+- [zed](https://zed.dev/)

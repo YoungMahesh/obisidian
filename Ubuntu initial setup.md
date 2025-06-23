@@ -9,4 +9,6 @@ sudo snap install obsidian --classic
 
 
 
+[[package-manager]]
+
 [[flameshot]]

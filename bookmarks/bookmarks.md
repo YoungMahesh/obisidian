@@ -1,6 +1,6 @@
 
 - [[bookmarks-learn]]
-- [[bookmarks-note_taking]]
+- [[bookmarks-editor]]
 
 - Time Tracker
     - [Clockify](https://app.clockify.me/tracker)
