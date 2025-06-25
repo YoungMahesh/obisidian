@@ -81,8 +81,15 @@ cp -r folder1/* folder2   # copy all files&folders from folder1 to folder2
 #file-storage
 du -sh <fileName>  # get size of folder
 du -sh *    # get sizes of all files and folder in current folder
+# check the disk usage of the root directory
+du -h --max-depth=1 /
+# interactive disk storage analysis
+apt install ncdu
+ncdu /
 # quick storage overview of whole (current) disk
 df -h # -h stands for "human-readable" and shows sizes in KB, MB, or GB.
+#docker remove unused data in docker
+docker system prune
 
 # -s == summerize, display total size for folder by caculation size of all files in it
 # -h == size in human readable format, M==MB, K==KB

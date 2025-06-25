@@ -16,7 +16,10 @@ Binary   Right shift   >>
 ```
 
 ### XOR (exclusive OR)
-1 if bits are different, otherwise 0
+- 1 if bits are different, otherwise 0
+- properties: 
+	- `num ^ num = 0` -> XOR of a number with itself is 0
+	- `num ^ 0 = num` -> XOR with 0 leaves the number unchanged
 ```
 0 ^ 0 = 0
 0 ^ 1 = 1

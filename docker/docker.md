@@ -1,5 +1,6 @@
 ## commands
 ```bash
+#docker
 ### installation (https://docs.docker.com/engine/install/)
 ```bash
 docker version
@@ -7,6 +8,9 @@ docker info
 service docker start
 service docker status
 docker run hello-world
+# remove unused data in docker
+docker system prune -h
+docker system prune
 
 ### image-management
 `docker image ls`  # list all docker-image commands
