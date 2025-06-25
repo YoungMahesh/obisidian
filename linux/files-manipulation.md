@@ -77,8 +77,13 @@ mv /path/folder1/* /path/folder2   # move files&folders from folder1 to folder2
 cp file1 file2            # create copy of file1 -> as 'file2'
 cp file1 file2 dirName    # create copy of 'file1', 'file2' into folder 'dirName'
 cp -r folder1/* folder2   # copy all files&folders from folder1 to folder2
+
+#file-storage
 du -sh <fileName>  # get size of folder
 du -sh *    # get sizes of all files and folder in current folder
+# quick storage overview of whole (current) disk
+df -h # -h stands for "human-readable" and shows sizes in KB, MB, or GB.
+
 # -s == summerize, display total size for folder by caculation size of all files in it
 # -h == size in human readable format, M==MB, K==KB
 ln -s /usr/bin/python3 /usr/bin/python  # create symlink/soft-link to access "python3" as "python"

@@ -1,6 +1,6 @@
 - VPS means *virtual private server* here
 
-- [connect to vps with ssh](./ssh.md)
+- [connect to vps with ssh](ssh.md)
 
 ```bash
 # connect to vps with username and passowd

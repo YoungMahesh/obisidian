@@ -1,3 +1,4 @@
+[[Remote GUI]]
 ### setup ssh to connect with two github accouonts from same machine
 ```bash
 # 1. create ssh key inside `~/.ssh` directory
