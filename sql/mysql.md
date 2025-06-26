@@ -5,3 +5,11 @@
 [[mysql_columns]]
 
 [[mysql_import]]
+
+[[mysql-security]]
+
+[[mysql-configuration]]
+
+### Concepts to learn
+- Transactions and Rollback
+- Auditing, Debugging, Monitoring

@@ -9,6 +9,7 @@ service docker start
 service docker status
 docker run hello-world
 # remove unused data in docker
+# ALERT: verify no important container is currently stopped, all are running
 docker system prune -h
 docker system prune
 
