@@ -5,4 +5,4 @@
 
 ## Security
 
-[[mysql-security]]
+[[mysql-binary_log]]

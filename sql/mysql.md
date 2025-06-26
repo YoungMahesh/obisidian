@@ -6,7 +6,7 @@
 
 [[mysql_import]]
 
-[[mysql-security]]
+[[mysql-backup]]
 
 [[mysql-configuration]]
 

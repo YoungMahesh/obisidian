@@ -1,8 +1,31 @@
-# MySQL Binary Log
+
+
+```bash
+
+```
+
+
+
+
+```sql
+-- check if **binary logs** are enabled
+SHOW VARIABLES LIKE 'log_bin';
+-- If log_bin: `ON`, binary logging is enabled.
+-- If log_bin `OFF`, binary logging is disabled.
+
+-- check the name of the binary log file (if enabled)
+SHOW MASTER STATUS;
+```
+
+
+
+
+## Description
 
 The **binary log** is a set of log files that record all changes to the database (such as `INSERT`, `UPDATE`, `DELETE`, `CREATE`, etc.), but **not** `SELECT` statements or other queries that do not modify data.
 
 
+- You **cannot** enable or disable binary logging for only a specific database. It is either on or off for the whole server.
 - The binlog records **committed transactions** only.
 - If a transaction is rolled back, it is **not** written to the binlog.
 ---
