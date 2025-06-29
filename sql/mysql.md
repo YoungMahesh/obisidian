@@ -4,6 +4,8 @@
 
 [[mysql_columns]]
 
+[[mysql.docker-compose]]
+
 [[mysql_import]]
 
 [[mysql-backup]]

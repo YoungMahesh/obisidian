@@ -1,6 +1,5 @@
 [[docker-container,compose]]
 [[docker-image]]
-[[traefik-proxy]]
 ## commands
 ```bash
 #docker

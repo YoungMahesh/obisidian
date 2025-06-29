@@ -1,4 +1,4 @@
-- example file: ./traefik.docker-compose.yml
+[[traefik.docker-compose]]
 
 # Errors
 

@@ -1,3 +1,4 @@
+```yml
 # https://doc.traefik.io/traefik/user-guides/docker-compose/basic-example/
 
 services:
@@ -105,3 +106,4 @@ networks:
   # verify traefik network name using `docker network ls`
   traefik_default:
     external: true
+```

@@ -1,3 +1,8 @@
+
+[[docker-nodejs]]
+[[traefik.docker-compose]]
+[[mysql.docker-compose]]
+[[phpmyadmin.docker-compose]]
 ## commands
 
 ### container 
@@ -21,6 +26,7 @@ docker container exec -it <container-name> bash
 
 # manage containers
 docker containr ls # list all running containers
+docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Image}}"
 docker containr ls -a # list all containers
 docker container stop <container-id> <container-id2>
 docker container start <container-id>
@@ -45,7 +51,18 @@ docker compose unpause
 
 ## Examples
 
-[[docker-nodejs]]
+```yml
+services:
+  service1:
+    container_name: xyz
+    # restart policy
+    # no: Never attempt to restart the container if it stops or crashes
+    # always: Always attempt to restart the container if it stops for any reason
+    # on-failure: Restart the container only if it stops with an error code (non-zero code)
+    # unless-stopped: Always restart the container unless it is manually stopped
+    restart: unless-stopped
+```
+
 ### Example-dockerignore
 
 ```dockerignore
