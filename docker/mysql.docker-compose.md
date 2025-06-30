@@ -34,7 +34,11 @@ docker exec mysql_container rm /backup.sql
 docker exec mysql_container ls # verify if file is removed
 ```
 
-### restore database
+### restore specific content of the database
+- restore data lost due to specific query - [[mysql-binary_log]]
+
+### restore whole database
+
 ```bash
 # create new database
 docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATABASE new_database;"
