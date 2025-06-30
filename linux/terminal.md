@@ -1,3 +1,10 @@
+- passwords: [[pass]]
+- search/edit-file: [[grep]] [[sed]]
+- documentation: [[info]]
+- remote-server: [[ssh]] 
+- theme: [[zsh]]
+---
+
 ```bash
 #------------------------------ terminal ----------------------------
 Cntr + a  # move cursor to start of the line

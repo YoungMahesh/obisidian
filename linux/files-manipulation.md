@@ -1,3 +1,5 @@
+[[grep]]
+
 ```bash
 # find
 find .  # recursively list all files in current directory
@@ -34,9 +36,6 @@ cat > file1     # data typed after this comand will be the content of the file1
 cat >> file1     # data typed after this comand, will be appended to the file1
 cat input | python app.py  # send/pipe data in 'input' file to the programme - python app.py
 
-#-------------------- grep --------------------------
-grep siddharth file1.txt -i  #search 'siddharth' in 'file1', -i == case-insensitivity
-grep shiva *         # #search 'shiva' in all files in current folder
 
 # view large files
 less file1 # top to bottom

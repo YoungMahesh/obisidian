@@ -12,7 +12,7 @@ services:
 ```
 
 
-### backup mysql database
+### backup database
 ```bash
 # 1. Enter the container
 docker exec -it mysql_container bash
@@ -30,4 +30,13 @@ docker cp mysql_container:/backup.sql .
 # 5. remove backup file inside container
 docker exec mysql_container rm /backup.sql
 docker exec mysql_container ls # verify if file is removed
+```
+
+### restore database
+```bash
+# create new database
+docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATABASE new_database;"
+
+# execute backup.sql in new database
+docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < /backup.sql
 ```
