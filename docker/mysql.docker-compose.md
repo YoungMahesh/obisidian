@@ -18,8 +18,10 @@ services:
 docker exec -it mysql_container bash
 
 # 2. Inside the container, create the backup
-# mysqldump -u<username> -p<password> <database-name> > /<backup-file-name>
-mysqldump -uroot -pMySecretPassword mydatabase > /backup.sql
+# mysqldump --master-data=1 -u<username> -p<password> <database-name> > /<backup-file-name>
+# The --master-data option in mysqldump is used to record the binary log coordinates (file and position) in the dump file. 
+#   This is crucial for point-in-time recovery and setting up replication.
+mysqldump --master-data=1 -uroot -pMySecretPassword mydatabase > /backup.sql
 
 # 3. Exit the container
 exit
@@ -39,4 +41,12 @@ docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATAB
 
 # execute backup.sql in new database
 docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < /backup.sql
+```
+
+### delete database
+```bash
+# -p = prompts you to enter the MySQL user’s password.
+# -e = Executes the SQL statement provided as a string which allows you to pass a SQL command directly from the command line, 
+#   so you don’t have to enter the MySQL shell interactively.
+docker exec -it mysql-container mysql -u root -p -e "DROP DATABASE mydatabase;"
 ```
