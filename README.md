@@ -1,0 +1,1 @@
+- some file-names end with `-` to avoid unrelated list of _Unlinked mentions_ in obisidian

@@ -1,4 +1,4 @@
-[[grep]]
+[[grep]]   [[less-]]   [[wc-]]
 
 ```bash
 # find
@@ -13,7 +13,6 @@ find . -maxdepth 1 -type f -size -20k # list files <20kb from current directory
 
 find . -type f -exec du -sh {} \;  # print files alonwith file-size
 find . -type f -exec du -sh {} \ | grep 343;  # filter list with grep
-
 
 # ------------------ collect file names --------------------------------------------------
 find . -type f -size +7M | awk -F'/' '{print substr($NF, 1, length($NF)-4)}'
@@ -37,9 +36,6 @@ cat >> file1     # data typed after this comand, will be appended to the file1
 cat input | python app.py  # send/pipe data in 'input' file to the programme - python app.py
 
 
-# view large files - #less
-less file1 # top to bottom
-less +G file1 # bottom to top
 
 # print lines
 cat file1 # whole file

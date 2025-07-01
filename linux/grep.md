@@ -1,3 +1,4 @@
+#grep
 ### Basic Syntax
 
 ```bash
@@ -6,9 +7,10 @@
 # **FILE**: The file(s) you want to search in.
 grep [OPTIONS] PATTERN [FILE...]
 
-
 # search for the word "grep" in `example.txt`
 grep "grep" example.txt
+
+info grep
 ```
 
 ---
