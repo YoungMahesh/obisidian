@@ -1,4 +1,10 @@
+### point-in-time recovery (PITR)
+```bash
+# you should have binary logs enabled with type of binary logs = 'ROW'; 
+#   by default mysql-server have this
 
+
+```
 
 ```sql
 -- check if **binary logs** are enabled

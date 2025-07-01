@@ -11,27 +11,41 @@ services:
       - ./mysql1:/var/lib/mysql
 ```
 
+### interact with mysql inside container
+```bash
+# Enter the container
+# -it == interactive-mode
+docker exec -it mysql_container bash
+
+# list files/folders inside container
+ls
+
+# Exit the container
+exit
+```
 
 ### backup database
 ```bash
-# 1. Enter the container
-docker exec -it mysql_container bash
-
-# 2. Inside the container, create the backup
-# mysqldump --master-data=1 -u<username> -p<password> <database-name> > /<backup-file-name>
-# The --master-data option in mysqldump is used to record the binary log coordinates (file and position) in the dump file. 
+# 1. provide password in command
+# docker exec -it <container-name> \
+#   mysqldump --source-data=1 -u<username> -p<password> <database-name> > ./<backup-file-name>
+# The --source-data option in mysqldump is used to record the binary log coordinates (file and position) in the dump file. 
 #   This is crucial for point-in-time recovery and setting up replication.
-mysqldump --master-data=1 -uroot -pMySecretPassword mydatabase > /backup.sql
+docker exec -it mysql1 \
+  mysqldump --source-data=1 -uroot -pMySecretPassword mydatabase > ./backup.sql
 
-# 3. Exit the container
-exit
-
-# 4. On the host, copy the backup to your current directory
-docker cp mysql_container:/backup.sql .
-
-# 5. remove backup file inside container
-docker exec mysql_container rm /backup.sql
-docker exec mysql_container ls # verify if file is removed
+# 2. provide password through prompt
+docker exec -it mysql1 \
+  mysqldump --source-data=1 -uroot -p mydatabase > ./backup.sql
+# paste password after above command
+# ---
+# now first line of backup.sql has `Enter password:` line, as prompt output was also saved
+# verify data inside file using less
+less ./backup.sql
+# delete first line from backup.sql
+sed -i '1d' ./backup.sql
+# verify if we didn't missed anything
+less ./backup.sql
 ```
 
 ### restore specific content of the database

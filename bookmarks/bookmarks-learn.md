@@ -9,6 +9,7 @@
 	6. [NeetCode](https://neetcode.io/)
 - learn CS
 	- [TechDevGuide by Google](https://techdevguide.withgoogle.com/)
+	 - [Exponent](https://www.tryexponent.com/)
 - learn AI
 	- [Hugging Face - Learn](https://huggingface.co/learn)
 	- [Learn Python, Data Viz, Pandas & More | Tutorials | Kaggle](https://www.kaggle.com/learn)
