@@ -1,3 +1,4 @@
+#sed
 ## 1. **Search (Print Matching Lines)**
 
 ```bash

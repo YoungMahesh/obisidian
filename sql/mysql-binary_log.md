@@ -1,9 +1,31 @@
 ### point-in-time recovery (PITR)
 ```bash
-# you should have binary logs enabled with type of binary logs = 'ROW'; 
+# you should have:
+# 1) binary logs enabled with type of binary logs = 'ROW'; 
 #   by default mysql-server have this
+# 2) mysql backup-file with binary-log coordinates
+#   global-search #backup for this
 
+# 1. copy binary-log file mentioned in backup.sql
+# e.g. -- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;
+#   in above line of backup.sql binlog.000248 is the binlog file we need to copy
+# docker cp <mysql-container-name>:/var/lib/mysql/<binlog-file> .
+docker cp mysql1:/var/lib/mysql/binlog.000248 .
+# if our current binary-log file is different (must have higher number) from coordinates in backup-file, then we need to copy and use more binary-log files
+#   starting id of binary file from id in backup.sql to shown in output of current binary-file
+#   e.g. 000248 is id of above binary-file
+#   execute sql query `SHOW MASTER STATUS;` in mysql to get latest binary-file id
 
+# 2. create new database, add backup-data inside it
+# we are doing this after copying binery-log file, as if we did it before then will also contain logs of:
+#   1) database-creation 2) new rows created during data-restoration
+#   we don't need these extra logs which can be huge in size
+docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATABASE new_database;"
+docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < /backup.sql
+
+# 3. decode binlog file and note down timestamp of query just before the data-loss query
+mysqlbinlog --base64-output=DECODE-ROWS -vv binlog.000248
+# binary file can be very long use 
 ```
 
 ```sql

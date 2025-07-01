@@ -37,7 +37,7 @@ cat >> file1     # data typed after this comand, will be appended to the file1
 cat input | python app.py  # send/pipe data in 'input' file to the programme - python app.py
 
 
-# view large files
+# view large files - #less
 less file1 # top to bottom
 less +G file1 # bottom to top
 
