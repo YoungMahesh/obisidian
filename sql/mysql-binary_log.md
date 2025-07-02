@@ -1,11 +1,13 @@
 ### point-in-time recovery (PITR)
+- environment for which following commands are created
+	- mysql-server is in docker-container
+	- binary logs are enabled and type of binary logs = 'ROW'
+		- by default mysql docker-container have this
+	- mysql database backup file `backup.sql` have binary-log coordinates
+		- using `--source-data=2` while executing `mysqldump` will create these coordinates in `backup.sql` file
+	- old-database (database which have data-loss problem) and new-database (in which we will recover lost data) are on same mysql-server
+#### process
 ```bash
-# you should have:
-# 1) binary logs enabled with type of binary logs = 'ROW'; 
-#   by default mysql-server have this
-# 2) mysql backup-file with binary-log coordinates
-#   global-search #backup for this
-
 # 1. copy binary-log file mentioned in backup.sql
 # e.g. -- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;
 #   in above line of backup.sql binlog.000248 is the binlog file we need to copy
@@ -59,6 +61,7 @@ docker exec -i mysql-container \
 ```
 ---
 
+#### supplementary information
 - install mysqlbinlog: `sudo apt install mysql-server-core-8.0`
 
 - sql queries
