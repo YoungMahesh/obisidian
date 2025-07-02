@@ -57,32 +57,26 @@ mysqlbinlog \
 docker exec -i mysql-container \
   mysql -uuser -ppassword college3 < apply.sql
 ```
+---
+
+- install mysqlbinlog: `sudo apt install mysql-server-core-8.0`
+
+- sql queries
+	- list all binary log files on server : `SHOW BINARY LOGS;`
+	- list current binary-log file and position: `SHOW MASTER STATUS;`
+	- check if binary-logs are enabled: `SHOW VARIABLES LIKE 'log_bin';`
+
+---
 
 ```sql
--- check if **binary logs** are enabled
-SHOW VARIABLES LIKE 'log_bin';
--- If log_bin: `ON`, binary logging is enabled.
--- If log_bin `OFF`, binary logging is disabled.
-
--- Displays the current status of the binary log on the master server, including the name and position of the current binary log file.
-SHOW MASTER STATUS;
-
--- Lists all binary log files that exist on the server.
-SHOW BINARY LOGS;
-
 -- check the binary log event types in MySQL
 -- does not show actual timestamp
 -- does not show actual query (if event-type is 'ROW')
 SHOW BINLOG EVENTS IN '<binlog-file>';
 -- example: SHOW BINLOG EVENTS IN 'binlog.000247';
-
--- use mysqlbinlog to to get timestamp and actual queries from binlog events
--- for ubuntu, install mysql-server-core to install mysqlbinlog
-sudo apt install mysql-server-core-8.0
-mysqlbinlog --version
-docker cp mysql1:/var/lib/mysql/<binlog-file> .
-mysqlbinlog --base64-output=DECODE-ROWS -vv <binlog-file>
 ```
+
+---
 
 ## Description
 
