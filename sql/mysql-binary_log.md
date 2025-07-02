@@ -1,50 +1,56 @@
-### point-in-time recovery (PITR)
-- environment for which following commands are created
-	- mysql-server is in docker-container
-	- binary logs are enabled and type of binary logs = 'ROW'
-		- by default mysql docker-container have this
-	- mysql database backup file `backup.sql` have binary-log coordinates
-		- using `--source-data=2` while executing `mysqldump` will create these coordinates in `backup.sql` file
-	- old-database (database which have data-loss problem) and new-database (in which we will recover lost data) are on same mysql-server
-#### process
-```bash
-# 1. copy binary-log file mentioned in backup.sql
-# e.g. -- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;
-#   in above line of backup.sql binlog.000248 is the binlog file we need to copy
-# docker cp <mysql-container-name>:/var/lib/mysql/<binlog-file> .
-docker cp mysql1:/var/lib/mysql/binlog.000248 .
-# if our current binary-log file is different (must have higher number) from coordinates in backup-file, then we need to copy and use more binary-log files
-#   starting id of binary file from id in backup.sql to shown in output of current binary-file
-#   e.g. 000248 is id of above binary-file
-#   execute sql query `SHOW MASTER STATUS;` in mysql to get latest binary-file id
 
-# 2. create new database, add backup-data inside it
-# we are doing this after copying binery-log file, as if we did it before then will also contain logs of:
-#   1) database-creation 2) new rows created during data-restoration
-#   we don't need these extra logs which can be huge in size
+
+
+## Point-in-Time Recovery (PITR)
+
+The following tutorial guides you through the process of performing a point-in-time recovery of a MySQL database. The environment for which these commands are created includes:
+
+*   MySQL server running in a Docker container
+*   Binary logs enabled with the type set to 'ROW' (enabled by default in the MySQL Docker container)
+*   A MySQL database backup file (`backup.sql`) containing binary log coordinates (created using `--source-data=2` with `mysqldump`)
+*   The old database (with data loss) and the new database (for recovery) are on the same MySQL server
+
+### Process
+
+The point-in-time recovery process involves the following steps:
+#### Step 1: Copy the Binary Log File
+Copy the binary log file mentioned in `backup.sql`. The file name and position are specified in the line starting with `-- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE`.
+e.g.` -- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;`
+
+```bash
+docker cp mysql1:/var/lib/mysql/binlog.000248 .
+```
+
+If the current binary log file is different from the one in the backup file, you may need to copy additional binary log files. To determine the latest binary log file, execute the SQL query `SHOW MASTER STATUS;` in MySQL.
+
+#### Step 2: Create a New Database and Restore Backup Data
+This step is performed after copying the binary log file to avoid including unnecessary additional logs of database-creation, row-insertions during data-restoration.
+
+```bash
 docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATABASE new_database;"
 docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < /backup.sql
+```
 
-# 3. get start-position and end-position 
-# A. get start-position
-#   e.g. in `-- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;` at top of backup.sql
-#   our start_position at 2140 (considering bilog-file remains same - binlog.000248)
-# B. get end-position
-#   start browsing through decoded.txt from start-position (e.g. 2140), you will see something like
-#     #250701 16:22:48 server id 1  end_log_pos 2140 CRC32 0x8fb81c7e 	Xid = 826
-#     COMMIT/*!*/;
-#     #at 2140
-#   continue until you are just before data-loss query-statement, note down position which will act as stop_position (e.g. COMMIT/*!*/; at 2455)
+#### Step 3: Determine Start and End Positions
+Determine the start and end positions for the binary log file.
+
+*   **Start Position**: Extracted from the `backup.sql` file, e.g., `2140` in `-- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;`
+*   **End Position**: Found by decoding the binary log file using `mysqlbinlog` and browsing through the output to identify the position just before the data loss query. e.g., 2140 in `COMMIT/*!*/; \n #at 2140`
+
+```bash
 # --database = name of the database whose logs we want to decode
-#   ignore warning: `you should use the options --exclude-gtids or --include-gtids` as it is not relevant in our case
+# ignore warning: `you should use the options --exclude-gtids or --include-gtids` as it is not relevant in our case
 mysqlbinlog --database=college2 --base64-output=DECODE-ROWS -vv binlog.000248 > ./decoded2.txt
 # decoded binary file can be very long, use #less to browse it
+```
 
-# 4. decide start_position and stop_position in binary-log, use them to create apply.sql
+
+#### Step 4: Create `apply.sql` Using `mysqlbinlog`
+Use `mysqlbinlog` to create `apply.sql` with the specified start and end positions, and rewrite the database name.
+
+```bash
 # old-database: database which we backed up and lost data
 # new-database: database which we crated, dumped backup.sql and will 
-#   execute new queries from start_position to stop_position to restore 
-#   lost-data while retaining essential changes after backup.sql creation
 # mysqlbinlog --start-position=START_POS --stop-position=STOP_POS \
 #   --rewrite-db=<old-database-name>-><new-database-name>
 #   /path/to/<binlog-file> > apply.sql
@@ -52,32 +58,30 @@ mysqlbinlog \
   --start-position=2140 --stop-position=2455 \
   --rewrite-db='college2->college3' \
   binlog.000248 > apply.sql
+```
 
-# 5. apply changes to new database
+#### Step 5: Apply Changes to the New Database
+Apply the changes from `apply.sql` to the new database.
+
+```bash
 # docker exec -i <mysql-container-name> mysql -u<username> -p<password> \
 #   <database-name> < apply.sql
 docker exec -i mysql-container \
   mysql -uuser -ppassword college3 < apply.sql
 ```
----
-
-#### supplementary information
-- install mysqlbinlog: `sudo apt install mysql-server-core-8.0`
-
-- sql queries
-	- list all binary log files on server : `SHOW BINARY LOGS;`
-	- list current binary-log file and position: `SHOW MASTER STATUS;`
-	- check if binary-logs are enabled: `SHOW VARIABLES LIKE 'log_bin';`
 
 ---
 
-```sql
--- check the binary log event types in MySQL
--- does not show actual timestamp
--- does not show actual query (if event-type is 'ROW')
-SHOW BINLOG EVENTS IN '<binlog-file>';
--- example: SHOW BINLOG EVENTS IN 'binlog.000247';
-```
+### Supplementary Information
+
+*   To install `mysqlbinlog` on Ubuntu, run: `sudo apt install mysql-server-core-8.0`
+*   Useful SQL queries:
+    *   List all binary log files on the server: `SHOW BINARY LOGS;`
+    *   List the current binary log file and position: `SHOW MASTER STATUS;`
+    *   Check if binary logs are enabled: `SHOW VARIABLES LIKE 'log_bin';`
+*   To check binary log event types in MySQL, use: `SHOW BINLOG EVENTS IN '<binlog-file>';`
+	- Output of this query does not show actual query, timestamp (if event-type = 'ROW')
+
 
 ---
 
