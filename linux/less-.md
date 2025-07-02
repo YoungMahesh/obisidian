@@ -10,9 +10,12 @@ less +25 file1 # start viewing file from line 25
 # inside less
 ctrl+u # move half page up
 ctrl+d # move half page down
-n # full page down; next page
 p # full page up; previous page
 /<word> # search 'word', case-sensitive
+n # next-occurrence of <word> in search
+N # previous-occurence of <word> in search
+j # move one line down
+k # move one line up
 q # quit 
 
 info less

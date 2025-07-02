@@ -23,9 +23,39 @@ docker cp mysql1:/var/lib/mysql/binlog.000248 .
 docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATABASE new_database;"
 docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < /backup.sql
 
-# 3. decode binlog file and note down timestamp of query just before the data-loss query
-mysqlbinlog --base64-output=DECODE-ROWS -vv binlog.000248
-# binary file can be very long use 
+# 3. get start-position and end-position 
+# A. get start-position
+#   e.g. in `-- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000248', SOURCE_LOG_POS=2140;` at top of backup.sql
+#   our start_position at 2140 (considering bilog-file remains same - binlog.000248)
+# B. get end-position
+#   start browsing through decoded.txt from start-position (e.g. 2140), you will see something like
+#     #250701 16:22:48 server id 1  end_log_pos 2140 CRC32 0x8fb81c7e 	Xid = 826
+#     COMMIT/*!*/;
+#     #at 2140
+#   continue until you are just before data-loss query-statement, note down position which will act as stop_position (e.g. COMMIT/*!*/; at 2455)
+# --database = name of the database whose logs we want to decode
+#   ignore warning: `you should use the options --exclude-gtids or --include-gtids` as it is not relevant in our case
+mysqlbinlog --database=college2 --base64-output=DECODE-ROWS -vv binlog.000248 > ./decoded2.txt
+# decoded binary file can be very long, use #less to browse it
+
+# 4. decide start_position and stop_position in binary-log, use them to create apply.sql
+# old-database: database which we backed up and lost data
+# new-database: database which we crated, dumped backup.sql and will 
+#   execute new queries from start_position to stop_position to restore 
+#   lost-data while retaining essential changes after backup.sql creation
+# mysqlbinlog --start-position=START_POS --stop-position=STOP_POS \
+#   --rewrite-db=<old-database-name>-><new-database-name>
+#   /path/to/<binlog-file> > apply.sql
+mysqlbinlog \
+  --start-position=2140 --stop-position=2455 \
+  --rewrite-db='college2->college3' \
+  binlog.000248 > apply.sql
+
+# 5. apply changes to new database
+# docker exec -i <mysql-container-name> mysql -u<username> -p<password> \
+#   <database-name> < apply.sql
+docker exec -i mysql-container \
+  mysql -uuser -ppassword college3 < apply.sql
 ```
 
 ```sql
