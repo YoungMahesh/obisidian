@@ -2,7 +2,7 @@
 
 # Errors
 
-### Certificate Renewal for domain which no longer exists
+## Certificate Renewal for domain which no longer exists
 
 - delete domain-entry associated with removed domain from acme.json (domain-certificate file) file
   - e.g. if `xyz.com | abc.com` were defined previously in docker-compose file, abc.com is removed but xyz.com is still in acme.json, then remove xyz.com from json file
@@ -11,21 +11,22 @@
 
 ## [Concepts](https://doc.traefik.io/traefik/getting-started/concepts/)
 
-- flow of request
+- Traefik is a edge router: a network device or service which sits at the boundary (or 'edge') between different networks, specifically between internal infrastructure and external networks like the internet
 
-  1. EntryPoints: define the port which will receive the packets, and whether listen to TCP or UDP
-  2. Routers: connecting incoming requests to the services that can handle them
-  3. Middlewares: attached to the routers, modify the requests or responses before they are sent to services
-  4. Services: configuring how to reach the actual services
-  5. Server/Application
+- Traefik have native integration with AWS, Kubernetes, Docker, etc
 
-- Traefik is a edge router: a network device or service which sits at the boundary (or 'edge') between different networks, specifically between
-  internal infrastructure and external networks like the internet
-- have native integration with AWS, Kubernetes, Docker, etc
+- Flow of request happens as follows: EntryPoint -> Router -> Middleware -> Service -> Application
 
-## how
+1. EntryPoints: define the port which will receive the packets, and whether listen to TCP or UDP
+2. Routers: connecting incoming requests to the services that can handle them
+3. Middlewares: attached to the routers, modify the requests or responses before they are sent to services
+4. Services: configuring how to reach the actual services
+5. Server/Application
 
-- traefik have static (startup time) and dynamic (while running) configuration
+
+## Configuration 
+
+- Traefik have static (startup time) and dynamic (while running) configuration
 
 ### static configuration
 
@@ -34,8 +35,7 @@ options in traefik:
 
 1. configuration file (yaml or toml)
 
-- when traefik starts, it searches for a file named traefik.toml or traefik.yaml or traefik.yml in `/etc/traefik`
-  directory
+- when traefik starts, it searches for a file named traefik.toml or traefik.yaml or traefik.yml in `/etc/traefik` directory
 
 2. command-line arguments
 
@@ -68,41 +68,36 @@ services:
 - [Traefik providers](https://doc.traefik.io/traefik/providers/overview/)
 
   - The providers are infrastructure components, whether orchestrators, container engines, cloud providers, or key-value stores.
-  - Four catcategories of providers:
+  - Four categories of providers:
     1. Label-based: each deployed container has a set of labels attached to it
     2. Key-Value-based: each deployed container updates a key-value store with relevant information
     3. Annotation-based: a separate object, with annotations, defines the characteristics of the container
     4. File-based: uses files to define configuration
 
-## why
+## Why choose Traefik over alternatives ?
 
-- many of reverse proxies but none were dynamic
-- e.g. traefik automatically detect new container, creates appropriate routing rules, domain setup just by looking at labels on container
-- microservices are dynamic in natures (they starts and shut-down very frequently) but much of configuration is static means you need
-  to update your reverse-proxy configuration separately whenever services are started or stopped
-- traefik became dynamic by watching new events of orchestrator (docker, kubernetes, etc)
+Traefik dynamically detects and configures routing rules based on container labels (since it watches events from the orchestrators like docker, kubernetes, etc);
+whereas other reverse proxies require manual configuration and don't support dynamic environments.
 
 ## Use Cases
 
-- Reverse Proxy: sits in front of web servers and routes incoming requests to the appropriate backend service
+- **Reverse Proxy**: sits in front of web servers and routes incoming requests to the appropriate backend service
 
   - redirects traffic between different services
   - handle SSL/TLS termination (process where reverse-proxy or load-balancer handles the encryption and decryption of HTTPS traffic,
     relieving backend servers from this computational overhead)
   - provide an additional layer of security by hiding backend server details
 
-- API Gateway: acts as entrypoint for API requests
+- **API Gateway**: Manages API traffic
+  - Transforms requests/responses (e.g., URL parameter mapping)
+  - Example: `/api/users?filter=active` → `/api/users?status=active&version=v2`
 
-  - request/response transformation
-  - e.g. query parameter manipulation: `/api/users?filter=active` (original URL) to `/api/users?status=active&version=v2` (transformed URL)
+- **Security & Access**
+  - Authentication & authorization
+  - Rate limiting
 
-- authentication and authorization
+- **Load Balancing**: Distributes traffic across servers
+  - Prevents server overload
+  - Strategies: Round Robin, Weighted, Least Connections, IP Hash
 
-- rate limiting
-
-- Load Balancing: distribute incoming network traffic across multiple servers
-
-  - prevent any single server from becoming a bottleneck
-  - load balancing strategies: Round Robin, Weighted Round Robin, Least Connections, IP Hash
-
-- Certificate Management: automatic SSL/TLS certificate management using Let's Encrypt
+- **Certificate Management**: Automated SSL/TLS with Let's Encrypt

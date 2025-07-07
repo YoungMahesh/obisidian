@@ -1,5 +1,10 @@
 
 - REMEMBER:  text courses are far better than video courses in terms of speed and understanding
+- everything
+	- [roadmap.sh](https://roadmap.sh/)
+	- [educative.io](https://www.educative.io/)
+	- [ashishps1-github](https://github.com/ashishps1)
+		- [algomaster - lld](https://algomaster.io)
 -  DSA (sorted: best to average)
 	1. [TUF+](https://takeuforward.org/plus)
 	2. [Code360](https://www.naukri.com/code360)
@@ -9,13 +14,6 @@
 	6. [NeetCode](https://neetcode.io/)
 - System Design
 	- [InterviewReady](https://interviewready.io/course-page/system-design-course)
-	- [system-design-resources-github](https://github.com/ashishps1/awesome-system-design-resources)	
-	- [low-level-design-github](https://github.com/ashishps1/awesome-low-level-design)
-		- [algomaster - lld](https://algomaster.io/learn/lld)
-- Behavioral
-	- [behavioral interviews - github](https://github.com/ashishps1/awesome-behavioral-interviews)
-- Coding Projects
-	- [coding projects - github](https://github.com/ashishps1/awesome-coding-projects)
 - Computer Science
 	- [TechDevGuide by Google](https://techdevguide.withgoogle.com/)
 	 - [Exponent](https://www.tryexponent.com/)
