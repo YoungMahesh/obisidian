@@ -1,1 +1,1 @@
-../dotfiles/obsidian/notes/.obsidian.vimrc
+../../dotfiles/obsidian/personal/notes/.obsidian.vimrc
