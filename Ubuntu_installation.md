@@ -18,6 +18,10 @@ sudo apt install flameshot pass
 - execute `uname -m`
 	- If the output is x86_64, your system is 64-bit (x64 or amd64 or x86_64).
 	- If the output is i686, i386, or similar, your system is 32-bit (x86).
+
+### make usb-drive compatible for image-flash on ubuntu
+- format usb disk -> create partition on whole drive of type FAT 
+- use balena-etcher with gnome UI (do not use i3wm interface as it creates problem for sudo password input which leads to error)
 ---
 
 [[package-manager]]
