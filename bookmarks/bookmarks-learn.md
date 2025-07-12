@@ -29,3 +29,4 @@
 	- [AI Engineer Roadmap](https://roadmap.sh/ai-engineer)
 	- [AI Hackathons - Lablab.ai](https://lablab.ai/apps/recent-winners)
 	- [Udemy](https://www.udemy.com/)
+	- [DataCamp](https://www.datacamp.com/)

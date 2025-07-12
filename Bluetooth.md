@@ -1,17 +1,18 @@
 ### headset vs handsfree
 - headset is better for microphone and speaker
 
-### fix problems on #ubuntu 
+### cannot turn on bluetooth on #ubuntu  ?
 ```bash
-# detailed information about your RAM
-# Look for the "Speed" field in the output, which indicates the RAM speed in MT/s (megatransfers per second) or MHz.
-sudo dmidecode -t memory
-
-# cannot turn on bluetooth?
 # Try manually loading the Bluetooth modules again:
 # modprobe - A Linux utility to add or remove #kernel modules
 sudo modprobe -r btusb # -r == remove, remove btusb
 sudo modprobe btusb # load btusb
+```
+
+```bash
+# detailed information about your RAM
+# Look for the "Speed" field in the output, which indicates the RAM speed in MT/s (megatransfers per second) or MHz.
+sudo dmidecode -t memory
 ```
 
 ### blueman bluetooth manager
