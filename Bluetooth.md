@@ -1,7 +1,7 @@
 ### headset vs handsfree
 - headset is better for microphone and speaker
 
-### cannot turn on bluetooth on #ubuntu  ?
+### cannot turn on #bluetooth on #ubuntu  ?
 ```bash
 # Try manually loading the Bluetooth modules again:
 # modprobe - A Linux utility to add or remove #kernel modules
@@ -17,7 +17,7 @@ sudo dmidecode -t memory
 
 ### blueman bluetooth manager
 - [blueman](https://github.com/blueman-project/blueman)
-- [[i3wm]] does not have GNOME like GUI, you can use bluemen in it
+- [[i3wm]] does not have GNOME like GUI, you can use [[blueman]] in it
 - how to accept pairing code?
 	```bash
 	bluetoothctl

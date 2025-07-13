@@ -2,12 +2,16 @@
 - i3 window manager
 - [[Bluetooth]]
 
+
+```bash
+sudo apt install i3
+```
 ## dmenu (a program launcher)
 
 ```config
 bindsym $mod+f exec --no-startup-id dmenu_run
 ```
-- to add new app to dmenu list, put their CLI at `/usr/bin` 
+- #install -  to add new app to dmenu list, put their CLI execution command at `/usr/bin` 
 
 ## status bar (at bottom)
 Here’s how you can hide/show your i3 bottom bar items, here we will hide **Wifi** and **IPv6** indicator:
