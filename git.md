@@ -9,6 +9,58 @@ git archive -o repository.zip HEAD
 ```
 
 
+---
+### How to Set Up Directory-Specific Git User Emails
+
+#### 1. Edit Your Global Git Config
+
+Open your global Git config file in your home directory:
+
+```bash
+nano ~/.gitconfig
+```
+
+#### 2. Add Conditional Includes
+
+Add the following to your `~/.gitconfig` (adjust the paths as needed):
+
+```ini
+# ... other configuration such as default editor
+
+[user]
+    name = Your Name
+    email = yourglobal@email.com
+
+[includeIf "gitdir:~/x/"]
+    path = ~/.gitconfig-work
+```
+
+- `~/x/` is the path where your work projects live.
+- `~/a/` is the path where your personal projects live to which your global email will get set as there is specific configuration for `a` directory.
+- The trailing slash is important (`gitdir:~/x/` matches all repos under `~/x/`).
+
+#### 3. Create the Included Config Files
+
+**For work projects:**
+
+```bash
+nano ~/.gitconfig-work
+```
+
+Add:
+```ini
+[user]
+    email = xyz@gmail.com
+```
+
+
+Now, Whenever You Create a New Repo
+- If you create a repo under `~/x/`, Git will automatically use `xyz@gmail.com`.
+- If you create a repo under `~/a/`, Git will automatically use `abc@gmail.com`.
+
+---
+
+
 ### post-commit hook
 
 ```bash
