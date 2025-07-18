@@ -99,6 +99,23 @@ services:
       # here 'whoami' is a custom service-name for this container
       - "traefik.http.services.whoami.loadbalancer.server.port=80"
 
+
+	  # ---------------- basic #auth -------------------
+	  # https://doc.traefik.io/traefik/middlewares/http/basicauth/
+	  # -n = no file (output to console); 
+	  # -b = batch mode (pick password from cli instead of prompt)
+	  # -B = use bcrypt algorithm to hash password
+	  # htpasswd -nbB <username> <password>
+	  # Note: when used in docker-compose.yml all dollar signs in the hash need to be doubled for escaping.
+	  # sed -e == sed expression; here sed edits content to double $ signs
+	  # echo $(htpasswd -nbB user1 password1) | sed -e s/\\$/\\$\\$/g
+	  - "traefik.http.middlewares.whoami.basicauth.users=person1:$$apr1$$H6uskkkW$$IgXLP6ewTrSuBkTrqE8wj/"
+	  # set multiple users
+	  - "traefik.http.middlewares.whoami.basicauth.users=test:$$apr1$$H6uskkkW$$IgXLP6ewTrSuBkTrqE8wj/,test2:$$apr1$$d9hr9HBB$$4HxwgUir3HP4EsggP/QNo0"
+	  # apply middleware to router (necessory)
+	  - "traefik.http.routers.whoami.middlewares=whoami@docker"
+
+ 
     networks:
       - traefik_default
 
