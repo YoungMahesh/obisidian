@@ -4,4 +4,7 @@
 ```bash
 sudo apt install blueman
 blueman-manager
+
+# manage bluetooth device volume
+pavucontrol
 ```
