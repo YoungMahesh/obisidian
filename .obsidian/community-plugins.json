@@ -1,1 +1,4 @@
-../../../dotfiles/obsidian/personal/notes/.obsidian/community-plugins.json
+[
+  "obsidian-vimrc-support",
+  "obsidian-git"
+]

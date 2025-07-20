@@ -1,12 +1,1 @@
-{
-  "vimMode": true,
-  "newFileLocation": "root",
-  "pdfExportSettings": {
-    "includeName": true,
-    "pageSize": "Letter",
-    "landscape": false,
-    "margin": "0",
-    "downscalePercent": 100
-  },
-  "alwaysUpdateLinks": true
-}
+../../../dotfiles/obsidian/personal/notes/.obsidian/app.json
