@@ -1,3 +1,9 @@
+## plugins
+- [vimrc support](https://github.com/esm7/obsidian-vimrc-support/)
+	- need to enable 'Vim Key Bindings' in settings -> Editor -> Advanced
+- [git](https://github.com/Vinzent03/obsidian-git)
+
+
 ## why not obsidian?
 
 ### 1. problem in custom vim-motions
