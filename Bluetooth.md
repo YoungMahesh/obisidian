@@ -22,6 +22,14 @@ sudo dmidecode -t memory
 	```bash
 	bluetoothctl
 	# before connecting, execute `bluetoothctl` in CLI, this will listen to requests -> upon request type `yes` in prompt to accept request
+	scan on
+	# MAC-address format: XX:XX:XX:XX:XX:XX
+	pair <MAC-address-of-device>
+	# If you see a prompt in the terminal (e.g., "Confirm passkey 123456 (yes/no):"), type:
+	yes
+	trust <MAC-address-of-device>
+	connect <MAC-address-of-device>
+	exit
 ```
 
 ### fix problems on Itel #feature-phone
