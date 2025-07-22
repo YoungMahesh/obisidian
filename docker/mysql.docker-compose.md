@@ -20,6 +20,12 @@ docker exec -it mysql_container bash
 # list files/folders inside container
 ls
 
+# execute mysql commands
+mysql -u root -p
+# (enter password)
+SHOW DATABASES;
+CREATE DATABASE mydatabase;
+
 # Exit the container
 exit
 ```
@@ -60,7 +66,7 @@ docker exec -it mysql1 \
 docker exec -it mysql_container mysql -uroot -pMySecretPassword -e "CREATE DATABASE new_database;"
 
 # execute backup.sql in new database
-docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < /backup.sql
+docker exec -i mysql_container mysql -uroot -pMySecretPassword new_database < ./backup.sql
 ```
 
 ### delete database
