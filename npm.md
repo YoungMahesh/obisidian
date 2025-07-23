@@ -13,14 +13,23 @@
 npm outdated # check list of packages which can be upgraded
 npm update --save # upgrade node packages
 
+# update spacific package latest version
+npm i <package-name>@latest
+
 # location of global node_modules
 npm root -g
 ```
 
-### update to latest
+### check and update packages to latest version
 ```bash
-# update package.json file versions to latest version
-npx npm-check-updates -u
-# update packages to versions mentioned in package.json
+npm install -g npm-check-updates
+
+# Check for new versions
+ncu
+
+# Upgrade all dependencies in package.json
+ncu -u
+
+# Install the updated packages
 npm install
 ```
