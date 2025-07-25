@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"e92c6d5dcefd2dcb","type":"text","text":"Goals to achieve","x":-125,"y":-30,"width":250,"height":60},
+		{"id":"ce66a95378049104","type":"text","text":"Scalibility","x":-125,"y":160,"width":250,"height":60},
+		{"id":"1d41e6f5ea7f606b","type":"text","text":"Reliability","x":-504,"y":-24,"width":250,"height":60},
+		{"id":"b577d406e27d258f","type":"text","text":"Availability","x":-132,"y":-260,"width":250,"height":60},
+		{"id":"bfa267adb26522fe","type":"text","text":"Security","x":344,"y":-35,"width":250,"height":60},
+		{"id":"6bd3a9a7c44c642a","type":"text","text":"Consistency","x":283,"y":230,"width":250,"height":60},
+		{"id":"b5e609f0c4f50a6b","x":-580,"y":216,"width":360,"height":184,"type":"file","file":"system_design/partition tolerance.md"}
+	],
+	"edges":[
+		{"id":"67e102e63d7a7e3f","fromNode":"e92c6d5dcefd2dcb","fromSide":"bottom","toNode":"ce66a95378049104","toSide":"top"},
+		{"id":"8b09e399d6a9e16b","fromNode":"e92c6d5dcefd2dcb","fromSide":"left","toNode":"1d41e6f5ea7f606b","toSide":"right"},
+		{"id":"62b932df9e17f2b5","fromNode":"e92c6d5dcefd2dcb","fromSide":"top","toNode":"b577d406e27d258f","toSide":"bottom"},
+		{"id":"40f822d380b4cc29","fromNode":"e92c6d5dcefd2dcb","fromSide":"right","toNode":"bfa267adb26522fe","toSide":"left"},
+		{"id":"bacb5e6d23efc78e","fromNode":"e92c6d5dcefd2dcb","fromSide":"bottom","toNode":"6bd3a9a7c44c642a","toSide":"top"},
+		{"id":"fd7703dc75dd8d03","fromNode":"e92c6d5dcefd2dcb","fromSide":"bottom","toNode":"b5e609f0c4f50a6b","toSide":"top"}
+	]
+}

@@ -13,7 +13,9 @@
 	5. [LeetCode](https://leetcode.com/) 
 	6. [NeetCode](https://neetcode.io/)
 - System Design
+	- [ByteByteGo Guides](https://bytebytego.com/guides/)
 	- [InterviewReady](https://interviewready.io/course-page/system-design-course)
+	- [Educative Cheatsheets](https://www.educative.io/cheatsheets)
 - Computer Science
 	- [TechDevGuide by Google](https://techdevguide.withgoogle.com/)
 	 - [Exponent](https://www.tryexponent.com/)
