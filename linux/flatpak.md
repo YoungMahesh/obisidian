@@ -1,4 +1,4 @@
-#flatpak #app-store #package-manager ger for #ubuntu 
+#flatpak #app-store #package-manager #ubuntu 
 
 
 ```bash

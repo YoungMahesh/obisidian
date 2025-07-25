@@ -7,7 +7,10 @@
 which <packageName>          # get path of file from which python3 command is executing
 whereis <packageName>        # get all paths where command is available
 
-sudo apt install --only-upgrade <packageName>
+# upgrade packages
+sudo apt update && apt list --upgradable
+sudo apt install --only-upgrade package_name
+sudo apt upgrade # upgrade all
 
 sudo apt purge code   # remove vscode
 sudo apt autoremove  # after every removal

@@ -30,7 +30,7 @@ CREATE DATABASE mydatabase;
 exit
 ```
 
-### #backup database
+### #backup mysql database
 ```bash
 # method 1: provide password in command
 # docker exec -it <container-name> \

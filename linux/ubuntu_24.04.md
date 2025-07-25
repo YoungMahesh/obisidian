@@ -1,16 +1,6 @@
 # my ubuntu 24.04 setup
 
-
-### install #apps
-
-```bash
-# check version
-lsb_release -a
-
-sudo apt update && apt list --upgradable
-sudo apt install --only-upgrade package_name
-sudo apt upgrade # upgrade all
-```
+- check #ubuntu version: `lsb_release -a`
 
 ### ui modifications
 
