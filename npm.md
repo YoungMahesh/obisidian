@@ -1,4 +1,22 @@
-- ## npm update
+#package-manager 
+## basic commands #npm
+```bash
+npm init -y     # create package.json file for your project
+npm install <package-name>  # install a package
+npm install <package-name> --save-dev  # save as development dependency
+
+npm install     # install all packages written in package.json
+npm run <command>                      # run package.json script
+
+npm install <package-name> -g          # globally install packge
+npm uninstall -g yarn                  # remove global packages
+
+npm -v          # check current version
+
+npm list -g --depth=0     # check globally installed packages on npm
+```
+
+## npm update
 - How Updates Are Handled
 	- npm packages are defined as: `"react": "^18.3.1"`
 		- e.g. in `18.3.1` - 18 == version , 3 == minor, 1 == patch
