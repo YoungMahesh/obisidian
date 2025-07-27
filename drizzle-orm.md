@@ -1,3 +1,10 @@
+#database
+
+## concepts
+- `drizzle-kit push` = `drizzle-kit generate` + `drizzle-kit migrate`
+- you need to create separate `drizzle.config.ts` file for different environments
+	- e.g. `drizzle-prod.config.ts` for production, `drizzle-dev.config.ts` for development
+
 ## Configuration
 ```typescript
 import { type Config } from "drizzle-kit";
