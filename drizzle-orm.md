@@ -5,16 +5,96 @@
 - you need to create separate `drizzle.config.ts` file for different environments
 	- e.g. `drizzle-prod.config.ts` for production, `drizzle-dev.config.ts` for development
 
-## bug-fixes
-### sql-syntax
+
+## how to apply migrations
+### 1. introspect
+- purpose: pull schema from database
+```bash
+# this will pull correct database schema and store it in drizzle-directory in comment form
+drizzle-kit introspect
+
+# sync entry of first migration (from database to local) entry of which is 
+#   created in _jornal.json with database/__drizzle_migrations table
+drizzle-kit migrate
+```
+
 - During `drizzle-kit migrate`, you may get error `You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/*`
 - In this case, convert  block-comments (`/* */`) to line comments (`-- `) in `.sql` migration file
 - This error happens probably because drizzle-migration engine does not support block-comments
 
-### migration file applied partially
-- You cannot use something like `START TRANSACTION ... COMMIT`  or any other command to either commit all or discard all changes as MySQL does not support rollback for DDL statements such as `CREATE TABLE XYZ`
+### 2.  generate
+- purpose: check difference between local-schema and database-schema
+- https://orm.drizzle.team/docs/migrations
+```bash
+# Currently I don't know which files drizzle-kit compares to generate migration-script
+# generate migration script, purpose of this is to create sql statements which
+#   on application to database will match schema in schema.ts (value of 
+#   schema variable in drizzle-config file)
+drizzle-kit generate
+```
 
+### 3. migrate
+- purpose: sync local and database schema
+```bash
+# 1. apply sql code generated using `drizzle-kit generate` to database
+# 2. register which migrations are applied to database by registering entry of
+#   migration from ./drizzle/meta/_journal.json to '__drizzle_migrations' table
+#   in database
+drizzle-kit migrate
+```
 
+### how to apply migration sql queries one at a time
+
+- **NOTE**: You cannot use something like `START TRANSACTION ... COMMIT`  or any other command to either commit all or discard all changes as MySQL does not support rollback for DDL statements such as `CREATE TABLE XYZ`
+
+- **Why**: If we applied all generated sql statements at once, it will be hard to figure which statement is throwing error if some statement is faulty
+	- e.g. while dropping index(generated sql-code), you need to drop foreign-key also(not generated but required sql-code)
+
+- **Process**
+	- comment out all sql-queries
+	- uncomment sql query which we are going to apply now
+	- run migration `drizzle-kit migrate` to apply uncommented/active queries to database 
+	- comment out applied query and next statement to continue execution
+	- To successfully rerun same migration file again and again we will either:
+		1. put some code which will cause error after active sql query
+			- e.g. `--comment`, no space after `--` hence this line will throw error
+		2. delete entry of last migration from `__drizzle-migrations` table created in database to tell `drizzle-kit` that migration is not applied yet
+
+```sql
+-- Example of how to apply migrations one statement at a time
+
+-- below script will drop `user1_fk` and provide error, which will stop 
+--   sync of `meta/_journal.json` in repository to '__drizzle_migrations' table
+--   in database, so that we can run migration script again, by:
+--      1) comment-out executed code-block
+--      2) un-comment code-block to execute next
+alter table user1
+drop foreign key `user1_fk`;--> statement-breakpoint
+
+-- comment below is invalid for drizzle migration script as it does not have
+--   have <space> after `--`
+
+--alter table user2
+--drop foreign key `user2_fk`;
+```
+
+### errors during migration
+#errors/drizzle
+#### syntax error near `/*`
+- drizzle-migration does not support block comments, use inline comments : two hyphens followed by a space (`-- `)
+
+#### syntax error near `<start of sql-query>` , after `;`
+- drizzle migration expect ending of statement with `;--> statement-breakpoint` instead of just `;`
+
+#### cannot drop index needed in a foreign key constraint
+- drop foreign-key then index
+- `drizzle-kit` generate to recreate foreign keys again if needed
+
+```sql
+alter table beneficiary
+drop foreign key `xyz_fk`,
+drop index `xyz_idx`;--> statement-breakpoint
+```
 
 ## Configuration
 ```typescript
