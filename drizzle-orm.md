@@ -24,9 +24,11 @@ drizzle-kit migrate
 
 ### 2.  generate
 - purpose: check difference between local-schema and database-schema
+- drizzle generates sql queries to sync new schema with old schema
+	- new schema: `config.schema-path`
+	- old schema: `<config.out-path>/meta/<last-id>_snapshot.json`
 - https://orm.drizzle.team/docs/migrations
 ```bash
-# Currently I don't know which files drizzle-kit compares to generate migration-script
 # generate migration script, purpose of this is to create sql statements which
 #   on application to database will match schema in schema.ts (value of 
 #   schema variable in drizzle-config file)
