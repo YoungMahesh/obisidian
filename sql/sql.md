@@ -1,4 +1,5 @@
-# sql commands
+#database
+## sql commands
 - supported databases: mysql v8.3.0, postgresql
 - prefer `TIMESTAMP` over `DATETIME` in mysql, as timestamp stores date, time in UTC timezone, while datetime does not store timezone
 

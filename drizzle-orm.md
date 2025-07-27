@@ -5,6 +5,17 @@
 - you need to create separate `drizzle.config.ts` file for different environments
 	- e.g. `drizzle-prod.config.ts` for production, `drizzle-dev.config.ts` for development
 
+## bug-fixes
+### sql-syntax
+- During `drizzle-kit migrate`, you may get error `You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/*`
+- In this case, convert  block-comments (`/* */`) to line comments (`-- `) in `.sql` migration file
+- This error happens probably because drizzle-migration engine does not support block-comments
+
+### migration file applied partially
+- You cannot use something like `START TRANSACTION ... COMMIT`  or any other command to either commit all or discard all changes as MySQL does not support rollback for DDL statements such as `CREATE TABLE XYZ`
+
+
+
 ## Configuration
 ```typescript
 import { type Config } from "drizzle-kit";

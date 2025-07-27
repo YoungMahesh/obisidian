@@ -1,3 +1,4 @@
+#database/mysql 
 ## `.csv` to MySQL
 
 - method 2 and 3 are unreliable, if `.csv` file is big, number of rows in csv-file > rows created in database

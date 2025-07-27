@@ -1,5 +1,5 @@
 #package-manager 
-## basic commands #npm
+## basic commands npm
 ```bash
 npm init -y     # create package.json file for your project
 npm install <package-name>  # install a package

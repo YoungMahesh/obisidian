@@ -1,4 +1,4 @@
-#flatpak #app-store #package-manager #ubuntu 
+#package-manager for Ubuntu - #ubuntu/app-store 
 
 
 ```bash

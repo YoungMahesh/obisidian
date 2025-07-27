@@ -1,3 +1,5 @@
+#database/mysql 
+
 ```sql
 create table info1(
   id int auto_increment primary key,

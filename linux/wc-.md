@@ -1,4 +1,4 @@
-#wc - word count
+#ubuntu/file-manipulation - word count
 
 ```bash
 # number of lines in filename 

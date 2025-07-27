@@ -1,5 +1,5 @@
-#app-store #package-manager  #ubuntu 
-## basic commands #snap-store
+#package-manager  #ubuntu/app-store 
+## basic commands snap-store
 ```bash
 snap find <search-text>    # find packages on snap, you can also search pakages on snapcraft website
 snap info <package>        # get information about package

@@ -1,5 +1,5 @@
 - [implementation](https://github.com/YoungMahesh/dotfiles/tree/main/i3)
-- i3 window ( #i3wm ) manager for #ubuntu 
+- i3 window  manager ( #ubuntu/i3wm )
 - [[Bluetooth]]
 
 

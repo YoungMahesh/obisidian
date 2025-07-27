@@ -1,7 +1,8 @@
+#ubuntu/i3wm/bluetooth
 ### headset vs handsfree
 - headset is better for microphone and speaker
 
-### cannot turn on #bluetooth on #ubuntu  ?
+### cannot turn on bluetooth on ubuntu  ?
 ```bash
 # Try manually loading the Bluetooth modules again:
 # modprobe - A Linux utility to add or remove #kernel modules

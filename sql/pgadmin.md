@@ -1,3 +1,4 @@
+#database/mysql 
 ### connect
 
 - use hostname(service-name)= (<docker-service-name> when on local) | (<ip-address> when on vps-server) in pgadmin connection form

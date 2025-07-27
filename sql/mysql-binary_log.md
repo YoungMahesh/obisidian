@@ -1,6 +1,4 @@
-
-
-
+#database/mysql 
 ## Point-in-Time Recovery (PITR)
 
 The following tutorial guides you through the process of performing a point-in-time recovery of a MySQL database. The environment for which these commands are created includes:

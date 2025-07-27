@@ -1,4 +1,4 @@
-#apt-store #app-store #package-manager for #debian or #ubuntu
+#package-manager for Ubuntu #ubuntu/app-store
 
 ```bash
 <packageName> --version       # check version of app
