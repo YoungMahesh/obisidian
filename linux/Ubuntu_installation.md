@@ -8,7 +8,8 @@
 sudo apt install flameshot pass i3 blueman
 ```
 
-### install from [#snap-store](https://snapcraft.io/store)
+### install from #snap-store
+- [snap-store](https://snapcraft.io/store)
 - obsidian, telegram, chromium, brave, vlc
 
 ### pre-installed #app-store
