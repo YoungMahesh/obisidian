@@ -6,7 +6,7 @@
 		{"id":"b577d406e27d258f","type":"text","text":"Availability","x":-132,"y":-260,"width":250,"height":60},
 		{"id":"bfa267adb26522fe","type":"text","text":"Security","x":344,"y":-35,"width":250,"height":60},
 		{"id":"6bd3a9a7c44c642a","type":"text","text":"Consistency","x":283,"y":230,"width":250,"height":60},
-		{"id":"b5e609f0c4f50a6b","x":-580,"y":216,"width":360,"height":184,"type":"file","file":"system_design/partition tolerance.md"}
+		{"id":"b5e609f0c4f50a6b","type":"file","file":"system_design/partition tolerance.md","x":-580,"y":216,"width":360,"height":184}
 	],
 	"edges":[
 		{"id":"67e102e63d7a7e3f","fromNode":"e92c6d5dcefd2dcb","fromSide":"bottom","toNode":"ce66a95378049104","toSide":"top"},
