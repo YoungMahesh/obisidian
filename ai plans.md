@@ -12,6 +12,9 @@
 - free models requests: 1000 / day
 	- can be used wit kilo-code and cline
 
+## groq
+- free model requests: 14,400 request per day
+
 ## Windsurf
 - for limited time: unlimited swe-1 prompts
 - unlimited swe-1 lite
