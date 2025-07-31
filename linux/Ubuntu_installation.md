@@ -4,8 +4,8 @@
 ### install from apt
 ```bash
 # flameshot (#screeshot), pass (password-store), i3 (i3wm manager), 
-# blueman (bluetooth manager)
-sudo apt install flameshot pass i3 blueman
+# blueman (bluetooth manager), # pavucontrol (audio output management)
+sudo apt install flameshot pass i3 blueman pavucontrol
 ```
 
 ### install from #snap-store
