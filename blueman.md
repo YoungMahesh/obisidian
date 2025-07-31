@@ -50,4 +50,6 @@ pavucontrol
 In short: 
 - For **music/media**, choose a “High Fidelity Playback” (A2DP) option—preferably SBC-XQ (if your device supports it) for the best quality.
 - For **calls/voice/mic**, “Headset Head Unit (HSP/HFP, codec mSBC)” gives the best voice clarity. If unavailable, fallback to CVSD.
+	- Boat Rockerz 111 supports only CVSD
+	- Oneplus BulletsWireless Z2 ANC supports both CVSD and mSBC
 - “Off” disables audio to the device.

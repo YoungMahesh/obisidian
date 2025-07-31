@@ -1,5 +1,5 @@
 
-#install
+#install #ubuntu/app-store 
 ## app installation
 ### install from apt
 ```bash
@@ -8,11 +8,11 @@
 sudo apt install flameshot pass i3 blueman pavucontrol
 ```
 
-### install from #snap-store
+### install from snap-store
 - [snap-store](https://snapcraft.io/store)
 - obsidian, telegram, chromium, brave, vlc, vscode
 
-### pre-installed #app-store
+### pre-installed app-store
 - `#snap-store` (for snap packages) and `gnome-software` (for Debian, Snap, Flatpak packages)
 
 
