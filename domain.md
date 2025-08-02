@@ -1,3 +1,4 @@
+#domain
 ### Configure domain provider
 
 1. Visit your domain-provider (e.g. `domains.google.com`)

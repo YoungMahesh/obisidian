@@ -1,4 +1,4 @@
-#app/notes
+#note-taking #encryption
 
 - [AnyType](https://anytype.io/)
 

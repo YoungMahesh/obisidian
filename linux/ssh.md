@@ -1,5 +1,5 @@
 [[Remote GUI]]
-### setup ssh to connect with two github accouonts from same machine
+### setup ssh to connect with two GitHub accounts from same machine
 ```bash
 # 1. create ssh key inside `~/.ssh` directory
 ssh-keygen -f work -C "<email-address>"  # create ssh key, -f == file-name, -C=comment

@@ -1,3 +1,4 @@
+#auth
 ### change domain
 
 - update domain and DNS records in dashboard.clerk.com -> project -> configure/Developers/Domains/DNS
