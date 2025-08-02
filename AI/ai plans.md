@@ -1,5 +1,4 @@
-
-#ai-model 
+#ai/provider
 
 ## [gemini cli](https://github.com/google-gemini/gemini-cli)
 - free 1000 requests per day for gemini 2.5 pro
