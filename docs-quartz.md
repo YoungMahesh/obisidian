@@ -1,5 +1,6 @@
-- [quartz - v4](https://quartz.jzhao.xyz/)
+#note-publish
 
+- [quartz - v4](https://quartz.jzhao.xyz/)
 
 ## content
 - write content in `/content` directory

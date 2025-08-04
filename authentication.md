@@ -1,3 +1,4 @@
+#auth 
 # architectures
 
 ## Basic Authentication

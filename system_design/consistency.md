@@ -1,6 +1,6 @@
+#database/concepts
+
 refers to how up-to-date and synchronized the data is across different nodes
-
-
 ## strong consistency
 - after a write completes, any subsequent read will read will return that value or more recent one
 - Guarantee: all clients will see the most recent value

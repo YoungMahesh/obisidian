@@ -1,4 +1,0 @@
-- [dropbox-sync](https://www.dropbox.com/desktop)
-- [pcloud-sync](https://www.pcloud.com/help/drive-help-center/whats-the-difference-between-pcloud-drive-and-pcloud-sync)
-- [mega-sync](https://mega.io/syncing)
-- [icedrive-sync](https://icedrive.net/apps/desktop-laptop)

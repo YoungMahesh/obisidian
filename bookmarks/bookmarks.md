@@ -1,6 +1,4 @@
-
-- [[bookmarks-learn]]
-- [[bookmarks-editor]]
+#bookmarks 
 
 - Time Tracker
     - [Clockify](https://app.clockify.me/tracker)
@@ -33,6 +31,16 @@
     - synthetic data - generated through LLM
     - [scale](https://scale.com/)
 
-- [[bookmarks-auth]]
 
-- [[bookmarks-sync]]
+#bookmarks/auth 
+	- [better-auth](https://www.better-auth.com/)
+	- [clerk-auth](https://clerk.com/)
+	- [work-os](https://workos.com/)
+	- [supertokens](https://supertokens.com/)
+
+
+- #bookmarks-sync
+	- [dropbox-sync](https://www.dropbox.com/desktop)
+	- [pcloud-sync](https://www.pcloud.com/help/drive-help-center/whats-the-difference-between-pcloud-drive-and-pcloud-sync)
+	- [mega-sync](https://mega.io/syncing)
+	- [icedrive-sync](https://icedrive.net/apps/desktop-laptop)

@@ -1,4 +1,0 @@
-- [better-auth](https://www.better-auth.com/)
-- [clerk-auth](https://clerk.com/)
-- [work-os](https://workos.com/)
-- [supertokens](https://supertokens.com/)

@@ -1,6 +1,4 @@
-
-## Note Taking
-
+### #bookmarks/note-taking
 - comparisons
 	- [[Obsidian vs Remnote]]
 	- remnote vs neovim
@@ -25,7 +23,7 @@
 - [Whimsical - Unite teams, tasks, and tools in one place](https://whimsical.com/)
 
 
-## Code editor
+### #bookmarks/code-editor
 - [windsurf](https://windsurf.com/)
 - [vscode](https://code.visualstudio.com/)
 - [zed](https://zed.dev/)

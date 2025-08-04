@@ -1,3 +1,4 @@
+#ubuntu/app-store 
 ### create icon for an AppImage in the GNOME application menu
 
 1. move .appimage to `~/.local/bin`

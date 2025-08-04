@@ -1,3 +1,4 @@
+#bookmarks/learn
 
 - REMEMBER:  text courses are far better than video courses in terms of speed and understanding
 - everything

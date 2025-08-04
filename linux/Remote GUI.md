@@ -1,3 +1,4 @@
+#vps/ssh
 ## X11 forwarding
 - here we are considering both local and remote operating system is #ubuntu 24.04
 ```bash

@@ -1,3 +1,4 @@
+#dsa/concept
 # Binary Operators
 Binary operators are fundamental elements in computer programming.
 They are called "binary" because they operate on two operands, meaning they require two inputs to perform a specific operation.
