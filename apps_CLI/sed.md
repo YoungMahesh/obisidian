@@ -1,4 +1,4 @@
-#ubuntu/file-manipulation 
+#cli/file-manipulation 
 ## 1. **Search (Print Matching Lines)**
 
 ```bash

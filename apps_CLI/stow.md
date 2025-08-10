@@ -1,3 +1,4 @@
+#cli/env
 ### basics
 
 ```bash

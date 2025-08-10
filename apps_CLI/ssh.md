@@ -1,4 +1,4 @@
-#vps/ssh
+#cli/vps
 ### setup ssh to connect with two GitHub accounts from same machine
 ```bash
 # 1. create ssh key inside `~/.ssh` directory

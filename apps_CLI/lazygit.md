@@ -1,3 +1,5 @@
+#cli/file-manipulation 
+
 ```bash
 lazygit  # execute inside repository to view git
 q        # save changes & quit lazygit

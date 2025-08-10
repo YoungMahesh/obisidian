@@ -1,3 +1,5 @@
+#cli/timer
+
 ```bash
 watson start algoexpert  # create and start project with name: `algoexpert`
 watson projects # get list of projects

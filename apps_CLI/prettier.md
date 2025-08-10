@@ -1,3 +1,4 @@
+#vscode/extension #cli/format
 ### husky + lint-staged setup
 
 - we are considering prettier is already setup

@@ -1,3 +1,5 @@
+#cli/password #encryption 
+
 ```bash
 pass   # list all passwords
 export EDITOR=nvim  # append this to ~/.bashrc file to set neovim as default editor

@@ -1,4 +1,4 @@
-#domain/email-forwarding
+#domain/email-forwarding #email
 
 - simple, beautiful UI experience
 ### email forwarding

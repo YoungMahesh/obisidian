@@ -1,3 +1,5 @@
+#cli/terminal
+
 ```bash
 exec bash  # open bash shell
 
