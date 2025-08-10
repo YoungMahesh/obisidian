@@ -1,25 +1,24 @@
 #cli/password #encryption 
 
 ```bash
+# view/edit
 pass   # list all passwords
-export EDITOR=nvim  # append this to ~/.bashrc file to set neovim as default editor
-pass insert github/personal   # add new password, here we are storing it in `github` directory
-pass insert github/work
 pass generate aws    # generate and store a new password
-pass show github/personl  # get password and metadata
-pass show -c github/personal  # copy password to clipboard
-pass find github    # get all passwords which have word `github` in their directory
-pass grep "email"   # search word `email` within password or metadata
-pass edit github/personal  # edit password or add metadata
-# append `export $EDITOR=nvim` in ~/.bashrc file, to use nvim for editing pass files, word `export` is necessory to add
-# metadata such as email, address etc, will go on any line below password line
-# first line is for password, all other lines for metadata
+openssl rand -hex 10  # generate 10-char, hex-encode password
+pass github/personl  # print content of 'github/personal'
+pass github/personal -c  # copy first-line/password to clipboard
+pass rm github/personal  # remove password/file
+pass git revert HEAD   # remove last changes
+pass git log  # changes made until now
+pass edit github/personal  # create/edit password/file
+export EDITOR=nvim  # append this to ~/.bashrc file to set neovim as default editor
+
+# search
+pass find github  # search word `github` in file-path
+pass grep email   # search word `email` within file-content
 
 # if you are getting warnging: There is no assurance this key belongs to the named user: change trust of gpg-key as mentiond in ./encryption.md
 
-pass rm github/personal  # remove password
-pass git log  # changes made until now
-pass git revert HEAD   # remove last changes
 # every edit, remove, generate, insert command of pass creates a new git-commit
 # revert helps when you want to revert last update you made in `pass`
 
