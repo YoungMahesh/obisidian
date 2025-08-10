@@ -12,6 +12,7 @@ Alt + 1   # move to first tab
 Alt + 2   # move to second tab
 Cntr + Shift + t  # create new tab
 Cntr + Shift + w  # close current tab
+reset # clear terminal commands, logs
 ```
 
 ```bash

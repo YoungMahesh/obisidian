@@ -20,3 +20,4 @@
 
 ### installation
 - https://obsproject.com/kb/linux-installation
+- execute `obs` to launch from CLI
