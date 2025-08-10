@@ -1,4 +1,4 @@
-#ubuntu/file-manipulation
+#cli/file-manipulation
 
 [[grep]]   [[less-]]   [[wc-]]
 

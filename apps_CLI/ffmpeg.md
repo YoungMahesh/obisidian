@@ -1,4 +1,4 @@
-#app/music
+#cli/music
 
 ```bash
 sudo apt install ffmpeg

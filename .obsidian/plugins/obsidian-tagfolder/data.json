@@ -9,7 +9,7 @@
   "sortTypeTag": "NAME_ASC",
   "expandLimit": 0,
   "disableNestedTags": false,
-  "hideItems": "NONE",
+  "hideItems": "ALL_EXCEPT_BOTTOM",
   "ignoreFolders": "",
   "targetFolders": "",
   "scanDelay": 250,
@@ -21,12 +21,12 @@
   "mergeRedundantCombination": false,
   "useVirtualTag": false,
   "useFrontmatterTagsForNewNotes": false,
-  "doNotSimplifyTags": false,
+  "doNotSimplifyTags": true,
   "overrideTagClicking": false,
   "useMultiPaneList": false,
   "archiveTags": "",
-  "disableNarrowingDown": false,
-  "expandUntaggedToRoot": false,
+  "disableNarrowingDown": true,
+  "expandUntaggedToRoot": true,
   "disableDragging": false,
   "linkConfig": {
     "incoming": {
@@ -41,5 +41,5 @@
   "linkShowOnlyFDR": true,
   "linkCombineOtherTree": true,
   "showListIn": "",
-  "displayFolderAsTag": false
+  "displayFolderAsTag": true
 }

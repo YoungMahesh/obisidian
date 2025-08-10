@@ -1,4 +1,4 @@
-#grep
+#grep #cli/search
 ### Basic Syntax
 
 ```bash

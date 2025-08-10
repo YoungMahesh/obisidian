@@ -1,5 +1,4 @@
-#errors/processes
-
+#errors/processes #cli/proccess
 
 ```bash
 # if you see you more than expected high RAM or CPU usage, check via

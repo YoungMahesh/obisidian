@@ -1,4 +1,4 @@
-#info - gnu info reader
+#cli/info - gnu info reader
 
 ```bash
 # get latest or missing key-action data

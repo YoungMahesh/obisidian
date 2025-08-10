@@ -1,4 +1,4 @@
-#app/fetch
+#cli/fetch
 
 ```bash
 # Documentation: `curl --manual`

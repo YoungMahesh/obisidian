@@ -1,4 +1,4 @@
-#ai-model 
+#AI/model 
 ### DSA explaination
 
 ```txt

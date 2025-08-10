@@ -1,4 +1,5 @@
-#ubuntu/i3wm/bluetooth
+#cli/bluetooth #i3wm
+
 -  Blueman is a popular Bluetooth manager on Ubuntu
 
 ```bash
