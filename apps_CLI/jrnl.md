@@ -5,10 +5,19 @@
 # add entry to journal
 jrnl today was average
 
+# delete entries
+jrnl --edit
+# remove entry-lines which you want to delete
+
+# add more details / multiple lines to specific entry
+jrnl --edit
+# add details on line below the timstamp/text of the entry
+
 # keywords like 'ago' for negative, 'm' for minutes, etc is not present 
 #   in jrnl cli code, it is part of it's depenedency 'parsedatetime'
 # https://github.com/bear/parsedatetime/blob/2a4b16901794f8dc71721d51aef6e1ecd643868b/parsedatetime/pdt_locales/base.py
 # set timestamp at 1 hours 10 minutes before current
+jrnl '-1h -10m: started some work'
 jrnl '1h ago 10m ago: started some work'
 # 10 minutes ago
 jrnl '10m ago: work2'
