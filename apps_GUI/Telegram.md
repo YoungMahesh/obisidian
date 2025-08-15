@@ -1,4 +1,4 @@
-#app 
+#app/messaging 
 
 [[Ubuntu_installation#install from snap-store]]
 ### Desktop app

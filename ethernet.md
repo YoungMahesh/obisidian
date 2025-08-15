@@ -1,4 +1,8 @@
 #networking
+
+### for jio airfiber
+- arrange wires in T568B standard while connecting connector to ethernet cable
+
 ### Ethernet cable connector - RJ45
 
 Most common household Ethernet cables—such as Cat5, Cat5e, Cat6, and Cat6a—do use RJ45 connectors.
