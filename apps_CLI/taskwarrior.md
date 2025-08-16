@@ -4,7 +4,7 @@
 task add <task-description>  # create task
 # add task with tag
 # task add <task-description> +<tag>
-task add go to walk +health
+task add 'go to walk' +health
 task   # list all non-completed, non-deleted tasks
 # list tasks with specific tag
 task +health
