@@ -29,13 +29,6 @@ timew start
 # check status
 timew
 
-# list all tasgs
-timew tags
-# increase urgency of tag by (0.8 + 0.5); 0.8 is constant
-# task config urgency.user.tag.<tag-name>.coefficient <number>
-task config urgency.user.tag.prep.coefficient 0.5
-# decrease urgency of tag by (0.8 - 0.5); 0.8 is constant
-task config urgency.user.tag.prep.coefficient -0.5
 
 # cancel currently active tracking
 timew cancel
@@ -58,9 +51,16 @@ timew stop
 timew stop abc
 # stop at specific time
 timew stop abc 13:00
+
+# add tag to existing entries
+timew tag @3 xyz
+# remove tag from existing entries
+timew untag @3 xyz
 # replace tag of previous-trackings with different/new tags
 # timew retag <list-of-ids> <list-of-tags>
 timew retag @4 @5 @6 study work
+# list all tasgs
+timew tags
 
 # modify/update start or end time of specific tracking
 timew modify start @6 09:21

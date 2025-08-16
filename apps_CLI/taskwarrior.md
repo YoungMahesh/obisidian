@@ -9,8 +9,15 @@ task   # list all non-completed, non-deleted tasks
 # list tasks with specific tag
 task +health
 task all  # list all tasks
+
 # change tags
 task 1 2 3 modify -oldtag +newtag
+# increase urgency of tag by (0.8 + 0.5); 0.8 is constant
+# task config urgency.user.tag.<tag-name>.coefficient <number>
+task config urgency.user.tag.prep.coefficient 0.5
+# decrease urgency of tag by (0.8 - 0.5); 0.8 is constant
+task config urgency.user.tag.prep.coefficient -0.5
+
 task status:completed all  # list all completed tasks
 # get details of task1, shows all stopwatch-sessions(start/stop)
 # task <id>
