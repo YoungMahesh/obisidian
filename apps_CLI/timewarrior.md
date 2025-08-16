@@ -28,8 +28,15 @@ timew start xyz
 timew start
 # check status
 timew
+
 # list all tasgs
 timew tags
+# increase urgency of tag by (0.8 + 0.5); 0.8 is constant
+# task config urgency.user.tag.<tag-name>.coefficient <number>
+task config urgency.user.tag.prep.coefficient 0.5
+# decrease urgency of tag by (0.8 - 0.5); 0.8 is constant
+task config urgency.user.tag.prep.coefficient -0.5
+
 # cancel currently active tracking
 timew cancel
 # start with new tag
