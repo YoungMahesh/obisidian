@@ -1,6 +1,11 @@
-- automatically generate instructions for github copilot: https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions#asking-copilot-coding-agent-to-generate-a-githubcopilot-instructionsmd-file
+#AI/model 
+
+### pricing
+- [Request allowances per plan](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
+- [Model Multipliers](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers)
 
 ### default instructions prompt
+- [reference](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions#asking-copilot-coding-agent-to-generate-a-githubcopilot-instructionsmd-file)
 
 ```markdown
 Your task is to "onboard" this repository to Copilot coding agent by adding a .github/copilot-instructions.md file in the repository that contains information describing how a coding agent seeing it for the first time can work most efficiently.

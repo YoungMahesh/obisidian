@@ -18,6 +18,12 @@ task config urgency.user.tag.prep.coefficient 0.5
 # decrease urgency of tag by (0.8 - 0.5); 0.8 is constant
 task config urgency.user.tag.prep.coefficient -0.5
 
+# hide task until tomorrow
+task 3 modify wait:tomorrow
+# hide task until 3 days
+task 4 modify wait:today+3d
+
+
 task status:completed all  # list all completed tasks
 # get details of task1, shows all stopwatch-sessions(start/stop)
 # task <id>

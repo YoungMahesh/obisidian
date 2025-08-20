@@ -64,6 +64,8 @@ timew tags
 
 # modify/update start or end time of specific tracking
 timew modify start @6 09:21
+# use :adjust if time of end time of previous entry overlaps with start time of this entry
+timew modify start @6 09:21 :adjust
 timew modify end @6 09:51
 
 # delete tracking with tag
