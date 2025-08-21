@@ -10,6 +10,10 @@ task   # list all non-completed, non-deleted tasks
 task +health
 task all  # list all tasks
 
+# search
+task /<keyword>/
+task all /'mulitple words here'/
+
 # change tags
 task 1 2 3 modify -oldtag +newtag
 # increase urgency of tag by (0.8 + 0.5); 0.8 is constant

@@ -39,18 +39,20 @@ timew start abc
 # timew start <active-tag> <new-tag>
 timew start xyz abc
 # start at specific time
-timew start abc 12:00
+timew start 12:00 abc
 
 # add new entry for specifc time
 # timew track <internal/start_time - end_time> <tag>
 timew track 10:00 - 10:48 pqr
+# entry passing through dates
+timew track 2025-08-20T23:00:00 - 2025-08-21T07:00:00 'sleep' :adjust
 
 # stop all trackings
 timew stop
 # stop specific tracking out of currently running trackings
 timew stop abc
 # stop at specific time
-timew stop abc 13:00
+timew stop 13:00 abc
 
 # add tag to existing entries
 timew tag @3 xyz

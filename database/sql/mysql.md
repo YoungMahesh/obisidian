@@ -5,6 +5,8 @@
 
 [[mysql_table]]
 
+[[mysql_contraints]]
+
 [[mysql_rows]]
 
 [[mysql_columns]]
