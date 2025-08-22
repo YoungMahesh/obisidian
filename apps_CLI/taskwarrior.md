@@ -26,6 +26,8 @@ task config urgency.user.tag.prep.coefficient -0.5
 task 3 modify wait:tomorrow
 # hide task until 3 days
 task 4 modify wait:today+3d
+# remove hide (update status from waiting to pending)
+task 4 modify wait:
 
 
 task status:completed all  # list all completed tasks

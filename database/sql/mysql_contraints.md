@@ -101,4 +101,3 @@ A `CHECK` constraint is used to limit the value range that can be placed in a co
         CONSTRAINT chk_products_price CHECK (price > 0) -- Ensures price is always positive
     );
     ```
-These constraints are the building blocks for creating a robust, reliable, and well-structured database.

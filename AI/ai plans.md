@@ -22,7 +22,11 @@
 - unlimited swe-1 lite
 
 ## Github copilot
-- with $10 / month: unlimited GPT 4.1 requests
+- with [$10/month pro plan](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
+	- unlimited GPT 4.1 requests
+	- 300 request quota)
+		- [review uncommitted changes](https://docs.github.com/en/copilot/concepts/code-review/code-review#code-review-monthly-quota)
+		- use claude_sonnet models
 
 ## t3.chat
 - with $8/month you get 1500 queries from almost all top AI models
