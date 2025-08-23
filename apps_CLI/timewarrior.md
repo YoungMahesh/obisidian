@@ -21,25 +21,30 @@ timew summary :ids
 # list summary of specific tag
 timew summary <tag>
 
-# start with tag
-timew start xyz
 # start without tag
 # you can assign tag to without-tag ids with `timew retag`
 timew start
-# check status
-timew
-
-
-# cancel currently active tracking
-timew cancel
 # start with new tag
 # this will stop currently active tags/trackings and start new one
 # start new tag while keeping active tags running
 timew start abc
 # timew start <active-tag> <new-tag>
 timew start xyz abc
+# start few minutes (can use keyword - min, mins, minutes) ago
+# <number> and <keyword - min, mins> must not have space between them
+timew start 3min ago abc
 # start at specific time
 timew start 12:00 abc
+# check status
+timew
+
+# remove last executed command
+# when we start new task while previous is running, this start command
+#   1) register end time of running task 2) register start time for new task
+#   you need to use 2 undo, to go remove above 2 steps
+timew undo
+# cancel currently active tracking; prefer undo
+timew cancel
 
 # add new entry for specifc time
 # timew track <internal/start_time - end_time> <tag>
