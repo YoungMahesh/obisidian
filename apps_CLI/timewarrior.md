@@ -30,12 +30,13 @@ timew start
 timew start abc
 # timew start <active-tag> <new-tag>
 timew start xyz abc
+# https://timewarrior.net/docs/backdated/
 # start few minutes (can use keyword - min, mins, minutes) ago
 # <number> and <keyword - min, mins> must not have space between them
 timew start 3min ago abc
 # start at specific time
 timew start 12:00 abc
-# check status
+# check time of currently running task
 timew
 
 # remove last executed command
@@ -59,7 +60,9 @@ timew stop abc
 # stop at specific time
 timew stop 13:00 abc
 
-# add tag to existing entries
+# tag to currently running tracker
+timew tag xyz
+# tag to specific entries using id
 timew tag @3 xyz
 # remove tag from existing entries
 timew untag @3 xyz

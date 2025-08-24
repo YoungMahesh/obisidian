@@ -1,7 +1,5 @@
 - kilo-code is a vscode extention
 
-
-
 ## settings
 - Auto Approve
 	- Disable 'Mode' option which automatically switch between modes (e.g. from 'Ask' to 'Code')
