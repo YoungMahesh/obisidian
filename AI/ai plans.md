@@ -5,14 +5,20 @@
 	- can be used with kilo-code
 - stores credentials at: `~/.gemini`
 
+## kilo code
+- pay only for what you use
+- buy prepaid credits with no expiry
+- no service-fee during deposit
+- one-time: free $5 for signup; free $20 credits for payment-verification (deposit $5)
 ## openrouter
 - pay only for what you use
 - buy prepaid credits with no expiry
+- 5% service-fee during deposit (minimum $0.8)
 - free models requests: 1000 / day
+	- keep >$10 balance in account
 	- can be used wit kilo-code and cline
-
 ## [[perplexity]]
-- launched 1 year free pro version offer for Airtel-customers in India.
+- one-time: 1 year free pro version offer for Airtel-customers in India.
 
 ## groq
 - free model requests: 14,400 request per day
