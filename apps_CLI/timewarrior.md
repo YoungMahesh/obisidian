@@ -18,8 +18,10 @@ timew
 timew summary
 # list all time-trackings with ids
 timew summary :ids
-# list summary of specific tag
-timew summary <tag>
+# filter through tags, e.g. `prod` as tag
+timew summary prod
+# :yest, :yesterday - filter for yesterday
+time summary prod :yest
 
 # start without tag
 # you can assign tag to without-tag ids with `timew retag`
