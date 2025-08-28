@@ -1,27 +1,31 @@
 #app/note-taking 
 
-### workflow
+### most used commands
 ```bash
-# check status
+# check currently running tracking
 timew
 # start a new-tracking and stop previously running tracking
 timew start abc
-# list all
+# list all time-trackings for today
 timew summary
-```
-
-### basic commands
-```bash
-# check active time-trackings
-timew
-# list all time-trackings
-timew summary
-# list all time-trackings with ids
-timew summary :ids
 # filter through tags, e.g. `prod` as tag
 timew summary prod
 # :yest, :yesterday - filter for yesterday
 time summary prod :yest
+
+# weekly summary
+# 1. from monday to now
+timew summary :week
+# 2. for last sunday only (:week starts monday), if your week starts on sunday
+timew summary :sunday
+```
+
+### basic commands
+- supported duration formats: https://timewarrior.net/reference/timew-durations.7/
+
+```bash
+# list all time-trackings with ids
+timew summary :ids
 
 # start without tag
 # you can assign tag to without-tag ids with `timew retag`
@@ -36,6 +40,8 @@ timew start xyz abc
 # start few minutes (can use keyword - min, mins, minutes) ago
 # <number> and <keyword - min, mins> must not have space between them
 timew start 3min ago abc
+# start 1 hour 30 minutes ago
+timew start 1.5hour ago abc
 # start at specific time
 timew start 12:00 abc
 # check time of currently running task

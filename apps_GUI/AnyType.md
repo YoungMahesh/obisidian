@@ -11,9 +11,10 @@
 - Template(object)-oriented note taking 
 
 ## keyboard shortcuts
-- `?` on bottom-right corner -> Keyboard shortcuts
+- left-sidebar -> bottom-right corner -> ? icon -> Keyboard shortcuts
 	- open the search pane - `ctrl + p`
 	- lock / unlock object (toggle) - `ctrl + l`
+	- redo - `ctrl + r`
 
 ## settings
 - use full width for page
