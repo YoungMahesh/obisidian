@@ -98,8 +98,14 @@ timew --version
 
 timew help
 timew help <command>
-# default config: ~/.config/timewarrior
-# default database: ~/.local/share/timewarrior
+# by default secondary - config, database will be set, but if you put data at
+#    primary location, then this will be used instead of secondars
+# config:
+#   primary: ~/.timewarrior/
+#   secondary: ~/.config/timewarrior
+# database: 
+#    primary: ~/.timewarrior/data
+#    secondary: ~/.local/share/timewarrior
 man timew
 time
 ```

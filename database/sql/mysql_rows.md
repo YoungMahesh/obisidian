@@ -1,8 +1,9 @@
 #database/mysql 
-### read, update, create, delete, count
-```sql
--------------------------- read rows ------------------------------------
 
+### read
+#database/mysql/select #database/mysql/join
+```sql
+-- read transactions rows
 SELECT *
 FROM transactions
 where amount > 100      -- amount column from transaction-table
@@ -28,6 +29,32 @@ FROM products_6
 GROUP BY make, model
 ORDER BY make, model;
 
+-- -------------- innerjoin  ---------
+-- An INNER JOIN returns only the rows where there is a match in both tables based on a specified column.
+-- If rows do not have a matching value in both tables, they are excluded from the result.
+-- This query returns items that have a matching category.
+SELECT i.id, i.name, c.name AS category_name
+FROM items i
+INNER JOIN categories c ON i.category_id = c.id;
+
+-- ------------- leftjoin -------------
+-- A LEFT JOIN returns all rows from the left table and the matching rows from the right table.
+-- If there is no match, the right table columns show NULL.
+-- This returns all employees, with department names where available, otherwise NULL.
+SELECT employees.employee_id, employees.employee_name, departments.department_name
+FROM employees
+LEFT JOIN departments ON employees.department_id = departments.department_id;
+
+-- ------------- rightjoin -------------
+-- A RIGHT JOIN returns all rows from the right table and matching rows from the left table.
+-- If there is no match, the left table columns show NULL.
+-- This returns every department and any matching employee names, NULL if no employees.
+SELECT employees.employee_name, departments.department_name
+FROM employees
+RIGHT JOIN departments ON employees.department_id = departments.department_id;
+```
+### update, create, delete, count
+```sql
 -------------------------- update rows ------------------------------------
 
 -- you cannot use 'table' during update; e.g. `update table ticket` is invalid

@@ -14,6 +14,7 @@
 - left-sidebar -> bottom-right corner -> ? icon -> Keyboard shortcuts
 	- open the search pane - `ctrl + p`
 	- lock / unlock object (toggle) - `ctrl + l`
+	- undo - `ctrl + u`
 	- redo - `ctrl + r`
 
 ## settings

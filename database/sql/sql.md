@@ -137,8 +137,6 @@ sqlite3 --version
 
 # mysql
 
-
-
 ### phpmyadmin docker container
 - increase phpmyadmin file upload limit:
   - add this to env: `UPLOAD_LIMIT=500M`, here `M == MegaBytes`
