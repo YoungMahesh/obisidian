@@ -1,5 +1,4 @@
-# vscode-version: 1.85.2
-
+[[vscode-keymaps]]
 ### basic interaction
 
 ```bash

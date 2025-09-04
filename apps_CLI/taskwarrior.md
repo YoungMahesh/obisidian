@@ -9,6 +9,8 @@ task 1
 task 1 edit  # edit description, start-time, etc
 task 3 done   # update status of task with ID == 3 as completed
 task   # list pending tasks
+task undo # remove last change
+
 task waiting # list waiting tasks
 task completed # list completed tasks
 # view all deleted tasks during `task purge`
@@ -31,6 +33,9 @@ task 4 modify wait:today+3d
 task 5 modify wait:monday
 # remove hide (update status from waiting to pending)
 task 4 modify wait:
+
+# update tags; remove tag 'home', add tag 'garden'
+task 1 modify -home +garden
 
 task 1 start  # start task with ID=1, taskwarrior starts stopwatch
 task 1 stop   # stop task with ID=1, total timestamp (start to stop) is saved in details

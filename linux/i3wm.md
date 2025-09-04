@@ -79,4 +79,11 @@ Here’s how you can hide/show your i3 bottom bar items, here we will hide **Wif
 ## workspace
 - number on bottom-left (left on status-bar) let you know your current workspace)
 ## auto-start applications
-## gaps and window appearance
+## wallpaper
+- To set a wallpaper in i3wm on Ubuntu, the most common approach is to use an external tool like "feh"
+```bash
+sudo apt install feh
+
+# Add this line near the end of the config file to set the wallpaper
+exec_always --no-startup-id feh --bg-fill /full/path/to/wallpaper.jpg
+```

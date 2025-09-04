@@ -1,0 +1,20 @@
+- Frontend+Backend
+	- NextJS
+- Backend
+	- Convex
+- Styling: TailwindCSS with Shadcn
+- Database
+	- MySQL on vps in docker-container
+	- Drizzle ORM
+- Auth
+	- ClerkAuth
+	- BetterAuth
+	- WorkOS
+- Payments
+	- Web3 Wallet
+	- Stripe; [Stripe-Recommendations](https://github.com/t3dotgg/stripe-recommendations)
+	- [Polar](https://polar.sh/)
+	- [Autumn](https://useautumn.com/)
+- MonoRepo: TurboRepo
+- analytics
+	- [posthog](https://posthog.com/)
