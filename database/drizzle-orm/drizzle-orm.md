@@ -1,5 +1,6 @@
 #database
 
+[[drizzle_select]]
 ## concepts
 - `drizzle-kit push` = `drizzle-kit generate` + `drizzle-kit migrate`
 - you need to create separate `drizzle.config.ts` file for different environments
