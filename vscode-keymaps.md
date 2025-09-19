@@ -5,12 +5,15 @@
 
 | keymap | default       | action                                        |
 | ------ | ------------- | --------------------------------------------- |
-|        | ctrl+p        | go to file                                    |
 | tab    | ctrl+tab      | quick open previous recently used editor/file |
+| ctrl+a | ctrl+a        | select all in current file                    |
+| ctrl+e | ctrl+e        | focus file explorer                           |
 | ctrl+j | ctrl+b        | toggle primary/left sidebar                   |
 | ctrl+k | ctrl+shift+p  | show all commands                             |
 | ctrl+l | ctrl+t        | toggle terminal                               |
-| ctrl+; |               | toggle secondary/right sidebar                |
-| ctrl+r | shift+alt+f12 | find all references                           |
 | ctrl+m | ctrl+1        | focus on first editor group                   |
+| ctrl+n |               | open lsp suggestion list                      |
 | ctrl+o |               | focus on outline view                         |
+| ctrl+p | ctrl+p        | go to file                                    |
+| ctrl+r | shift+alt+f12 | find all references                           |
+| ctrl+; |               | toggle secondary/right sidebar                |
