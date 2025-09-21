@@ -24,6 +24,7 @@
 - quite and open anytype
 - you don't to login again
 - your existing data will not be affected (even if not synced in previous version)
+	- you can verify this by browsing to last updated page history
 ## settings
 - use full width for page
 	- page-header -> right-side of 'Add description' -> set layout width
