@@ -17,6 +17,13 @@
 	- undo - `ctrl + u`
 	- redo - `ctrl + r`
 
+## how to upgrade app version
+- go to https://anytype.io/
+- click download button - click Debian
+- `sudo apt install ./<anytype-app-name>.deb`
+- quite and open anytype
+- you don't to login again
+- your existing data will not be affected (even if not synced in previous version)
 ## settings
 - use full width for page
 	- page-header -> right-side of 'Add description' -> set layout width
