@@ -1,4 +1,6 @@
 [[vscode-keymaps]]
+[[vscode-extensions]]
+
 ### basic interaction
 
 ```bash
