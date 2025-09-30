@@ -30,9 +30,10 @@
 ## Github copilot
 - with [$10/month pro plan](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 	- unlimited GPT 4.1 requests
-	- 300 request quota)
+	- [300 request quota](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers)
 		- [review uncommitted changes](https://docs.github.com/en/copilot/concepts/code-review/code-review#code-review-monthly-quota)
 		- use claude_sonnet models
+- click on 'Manage Models' under list of models in chat-box and you can use OpenRouter api key
 
 ## t3.chat
 - with $8/month you get 1500 queries from almost all top AI models
