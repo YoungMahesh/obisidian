@@ -46,6 +46,29 @@ git clone <pass-repository-url> ~/.password-store  # here we are cloning pass-re
 # `~/.password-store` is the default directory for `pass`
 ```
 
+### fix: secret key expired
+```bash
+gpg --list-keys
+gpg --edit-key <KEY-ID>
+# Now, you are within the GPG interactive prompt
+
+# your primary key have multiple sub-keys
+# list all your sub-keys
+list
+
+# select key using 0-based indexing
+# select first key
+key 0
+# select second key
+key 1
+
+# then run:
+expire
+# select extention period by following prompted instructions
+
+# Save the changes by typing:
+save
+```
 
 ### multiple pass
 1. login to a different user account: `su -l <username>`
