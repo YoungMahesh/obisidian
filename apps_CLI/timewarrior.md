@@ -16,6 +16,8 @@ time summary prod :yest
 # weekly summary
 # 1. from monday to now
 timew summary :week
+# get summary of last week
+timew summary :lastweek
 # 2. for last sunday only (:week starts monday), if your week starts on sunday
 timew summary :sunday
 ```
