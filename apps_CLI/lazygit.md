@@ -1,5 +1,7 @@
 #cli/file-manipulation 
 
+- [installation](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#debian-and-ubuntu)
+
 ```bash
 lazygit  # execute inside repository to view git
 q        # save changes & quit lazygit
