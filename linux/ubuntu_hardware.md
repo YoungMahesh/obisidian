@@ -1,3 +1,4 @@
+#ubuntu/hardware 
 
 - headset vs handsfree
   - headset is better for microphone and speaker
@@ -16,4 +17,26 @@ sudo dmidecode -t memory
 # Try manually loading the Bluetooth modules again:
 sudo modprobe -r btusb
 sudo modprobe btusb
+```
+
+
+### list all hardware
+- all hardware currently connected to operating system
+	- includes cpu, ethernet, wifi, mouse, power-button etc
+
+```bash
+lshw -short
+```
+
+
+### RAM (memory)
+
+```bash
+# shows total, used, available memory
+free -h
+```
+### cpu
+```bash
+# get CPU name, architecture, cores, cache
+lscpu
 ```
