@@ -17,6 +17,7 @@ task completed # list completed tasks
 # list tasks with specific tag
 task +health
 task all  # list all tasks, including hidden/waiting
+task all status:pending # list all pending tasks
 
 # search
 task /<keyword>/
